@@ -1,0 +1,72 @@
+﻿@model MontadoraEA.Models.Cliente
+@{
+    ViewBag.Title = "Novo";
+}
+
+<h2>Novo Cliente</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Dados do Cliente</legend>
+        <div>
+            @Html.LabelFor(Model => Model.Nome)
+        </div>
+        <div>
+            @Html.EditorFor(Model => Model.Nome)
+            @Html.ValidationMessageFor(Model => Model.Nome)
+        </div>
+
+        <div>
+            @Html.LabelFor(Model => Model.Cpf)
+        </div>
+        <div>
+            @Html.EditorFor(Model => Model.Cpf)
+            @Html.ValidationMessageFor(Model => Model.Cpf)
+        </div>
+
+        <div>
+            @Html.LabelFor(Model => Model.DataNascimento)
+        </div>
+        <div>
+            @Html.EditorFor(Model => Model.DataNascimento)
+            @Html.ValidationMessageFor(Model => Model.DataNascimento)
+        </div>
+
+        <div>
+            @Html.LabelFor(Model => Model.Endereco)
+        </div>
+        <div>
+            @Html.EditorFor(Model => Model.Endereco)
+            @Html.ValidationMessageFor(Model => Model.Endereco)
+        </div>
+
+        <div>
+            @Html.LabelFor(Model => Model.Numero)
+        </div>
+        <div>
+            @Html.EditorFor(Model => Model.Numero)
+            @Html.ValidationMessageFor(Model => Model.Numero)
+        </div>
+
+        <div>
+            @Html.LabelFor(Model => Model.OrgaoExpedidor)
+        </div>
+        <div>
+            @Html.EditorFor(Model => Model.OrgaoExpedidor)
+            @Html.ValidationMessageFor(Model => Model.OrgaoExpedidor)
+        </div>
+
+        <div>
+            @Html.LabelFor(Model => Model.Rg)
+        </div>
+        <div>
+            @Html.EditorFor(Model => Model.Rg)
+            @Html.ValidationMessageFor(Model => Model.Rg)
+        </div>
+        <div>
+            <button type="submit"> Enviar </button> 
+        </div>
+    </fieldset>
+}

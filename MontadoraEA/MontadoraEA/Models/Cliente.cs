@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace MontadoraEA.Models
 {
     public class Cliente: Pessoa
     {
+        [DisplayName("Data de Nascimento")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataNascimento { get; set; }
 
@@ -19,6 +21,7 @@ namespace MontadoraEA.Models
         [Required]
         public string Numero { get; set; }
 
+        [DisplayName("Órgão Expedidor")]
         [StringLength(50, ErrorMessage = "O tamanho máximo são 50 caracteres.")]
         [Required]
         public string OrgaoExpedidor { get; set; }
