@@ -1,4 +1,5 @@
 ﻿@model MontadoraEA.Models.Cliente
+
 @{
     ViewBag.Title = "Novo";
 }
@@ -16,6 +17,13 @@
         <div>
             @Html.EditorFor(Model => Model.Nome)
             @Html.ValidationMessageFor(Model => Model.Nome)
+        </div>
+        <!--                                                             -->
+        <div>
+            @Html.LabelFor(Model => Model.ESexo)
+        </div>
+        <div>
+            @Html.EnumDropDownListFor(Model => Model.ESexo)
         </div>
 
         <div>
@@ -51,6 +59,23 @@
         </div>
 
         <div>
+            @Html.LabelFor(Model => Model.Cidade.Estado)
+        </div>
+        <div>
+            @Html.EnumDropDownListFor(Model => Model.Cidade.Estado)
+            @Html.ValidationMessageFor(Model => Model.Cidade.Estado)
+        </div>
+
+        <div>
+            @Html.LabelFor(Model => Model.Cidade.Nome)
+        </div>
+        <div>
+            @Html.HiddenFor(Model => Model.Cidade.CidadeId)
+            @Html.EditorFor(Model => Model.Cidade.Nome)
+            @Html.ValidationMessageFor(Model => Model.Cidade.Nome)
+        </div>
+
+        <div>
             @Html.LabelFor(Model => Model.OrgaoExpedidor)
         </div>
         <div>
@@ -66,7 +91,7 @@
             @Html.ValidationMessageFor(Model => Model.Rg)
         </div>
         <div>
-            <button type="submit"> Enviar </button> 
+            <button type="submit"> Enviar </button>
         </div>
     </fieldset>
 }

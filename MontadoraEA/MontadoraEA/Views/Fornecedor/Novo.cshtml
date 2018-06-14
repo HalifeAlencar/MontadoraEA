@@ -1,0 +1,41 @@
+﻿@model MontadoraEA.Models.Fornecedor
+@{
+    ViewBag.Title = "Novo";
+}
+
+<h2>Cadastro de Fornecedor</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Dados do Fornecedor</legend>
+        <div>
+            @Html.LabelFor(Model => Model.Nome)
+        </div>
+        <div>
+            @Html.EditorFor(Model => Model.Nome)
+            @Html.ValidationMessageFor(Model => Model.Nome)
+        </div>
+
+        <div>
+            @Html.LabelFor(Model => Model.Cpf)
+        </div>
+        <div>
+            @Html.EditorFor(Model => Model.Cpf)
+            @Html.ValidationMessageFor(Model => Model.Cpf)
+        </div>
+
+        <div>
+            @Html.LabelFor(Model => Model.Endereco)
+        </div>
+        <div>
+            @Html.EditorFor(Model => Model.Endereco)
+            @Html.ValidationMessageFor(Model => Model.Endereco)
+        </div>
+
+        <div>
+            <button type="submit"> Enviar </button>
+        </div>
+    </fieldset>
+}

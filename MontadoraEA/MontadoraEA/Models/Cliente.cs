@@ -9,6 +9,12 @@ namespace MontadoraEA.Models
 {
     public class Cliente: Pessoa
     {
+        public Cliente()
+        {
+            Cidade = new Cidade();
+
+        }
+
         [DisplayName("Data de Nascimento")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataNascimento { get; set; }
@@ -30,11 +36,11 @@ namespace MontadoraEA.Models
         [Required]
         public string Rg { get; set; }
 
-        [StringLength(20, ErrorMessage = "O tamanho máximo são 20 caracteres.")]
-        [Required]
+        
         public Cidade Cidade { get; set; }
-
+        
         [Required]
+        [DisplayName("Sexo")]
         public ESexo ESexo { get; set; }
     }
 }

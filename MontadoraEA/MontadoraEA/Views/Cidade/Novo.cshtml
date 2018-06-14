@@ -1,0 +1,34 @@
+﻿@model MontadoraEA.Models.Cidade
+@{
+    ViewBag.Title = "Novo";
+}
+
+<h2>Nova Cidade</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Incluir Cidade</legend>
+        <div>
+            @Html.LabelFor(Model => Model.Estado)
+        </div>
+        <div>
+            @Html.EnumDropDownListFor(Model => Model.Estado)
+            @Html.ValidationMessageFor(Model => Model.Estado)
+        </div>
+
+        <div>
+            @Html.LabelFor(Model => Model.Nome)
+        </div>
+        <div>
+            @Html.EditorFor(Model => Model.Nome)
+            @Html.ValidationMessageFor(Model => Model.Nome)
+        </div>
+
+        <div>
+            <br />
+            <button type="submit"> Enviar </button>
+        </div>
+    </fieldset>
+}
