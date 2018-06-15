@@ -8,10 +8,10 @@ using System.Web.Mvc;
 
 namespace MontadoraEA.Controllers
 {
-    public class CidadeController : Controller
+    public class VeiculoController : Controller
     {
-        private readonly CidadeRepository cidadeRepository = new CidadeRepository();
-        // GET: Cidade
+        private readonly VeiculoRepository veiculoRepository = new VeiculoRepository();
+
         public ActionResult Index()
         {
             return View();
@@ -19,19 +19,18 @@ namespace MontadoraEA.Controllers
 
         public ActionResult Novo()
         {
-            
             return View();
         }
-
         [HttpPost]
-        public ActionResult Novo(Cidade cidade)
+        public ActionResult Novo(Veiculo veiculo)
         {
             if (ModelState.IsValid)
             {
-                cidadeRepository.Adicionar(cidade);
+                veiculoRepository.Adicionar(veiculo);
+
+                return View("Index","Veiculo");
             }
-            
-            return View(cidade);
+            return View(veiculo);
         }
     }
 }

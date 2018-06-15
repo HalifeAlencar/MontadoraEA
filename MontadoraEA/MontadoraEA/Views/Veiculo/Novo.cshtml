@@ -1,0 +1,43 @@
+﻿@model MontadoraEA.Models.Veiculo
+@{
+    ViewBag.Title = "Novo";
+}
+
+<h2>Novo Veiculo</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Dados do Montador</legend>
+        <div>
+            @Html.LabelFor(Model => Model.Modelo)
+        </div>
+        <div>
+            @Html.EditorFor(Model => Model.Modelo)
+            @Html.ValidationMessageFor(Model => Model.Modelo)
+        </div>
+
+        <div>
+            @Html.LabelFor(Model => Model.Marca)
+        </div>
+        <div>
+            @Html.EditorFor(Model => Model.Marca)
+            @Html.ValidationMessageFor(Model => Model.Marca)
+        </div>
+
+        <div>
+            @Html.LabelFor(Model => Model.Categoria)
+        </div>
+        <div>
+            @Html.EditorFor(Model => Model.Categoria)
+            @Html.ValidationMessageFor(Model => Model.Categoria)
+        </div>
+
+
+
+        <div>
+            <button type="submit"> Enviar </button>
+        </div>
+    </fieldset>
+}

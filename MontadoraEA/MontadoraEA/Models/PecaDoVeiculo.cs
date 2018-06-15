@@ -7,7 +7,13 @@ using System.Web;
 namespace MontadoraEA.Models
 {
     public class PecaDoVeiculo
-    {
+    {        
+        public PecaDoVeiculo()
+        {
+            Peca = new Peca();
+            Veiculo = new Veiculo();
+        }
+
         [Key]
         public int PecaDoVeiculoId { get; set; }
 
@@ -17,15 +23,11 @@ namespace MontadoraEA.Models
 
         public int Quantidade { get; set; }
 
-        [Required]
+        
         public Peca Peca { get; set; }
 
-        [Required]
+        
         public Veiculo Veiculo { get; set; }
-
-        public PecaDoVeiculo(Veiculo veiculo) //composição exemplo de implantação
-        {
-            Veiculo = veiculo;
-        }
+        
     }
 }

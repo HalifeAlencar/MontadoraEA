@@ -1,4 +1,5 @@
 ﻿using MontadoraEA.Models;
+using MontadoraEA.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,25 +10,25 @@ namespace MontadoraEA.Controllers
 {
     public class ClienteController : Controller
     {
+        private readonly ClienteRepository clienteRepository = new ClienteRepository();
         // GET: Cliente
         public ActionResult Index()
         {
             return View();
         }
-
         
         public ActionResult Novo()
-        {          
+        {
 
             return View();
         }
-        
+
         [HttpPost]
         public ActionResult Novo(Cliente cliente)
         {
             if (ModelState.IsValid)//valida no lado do servidor
             {
-                return View("Index","Home");
+                clienteRepository.Adicionar(cliente);
             }
 
             return View(cliente);
