@@ -1,0 +1,41 @@
+﻿@model MontadoraEA.Models.Montador
+@{
+    ViewBag.Title = "Novo";
+}
+
+<h2>Novo Montador</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Dados do Montador</legend>
+        <div>
+            @Html.LabelFor(Model => Model.Nome)
+        </div>
+        <div>
+            @Html.EditorFor(Model => Model.Nome)
+            @Html.ValidationMessageFor(Model => Model.Nome)
+        </div>
+
+        <div>
+            @Html.LabelFor(Model => Model.Cpf)
+        </div>
+        <div>
+            @Html.EditorFor(Model => Model.Cpf)
+            @Html.ValidationMessageFor(Model => Model.Cpf)
+        </div>
+
+        <div>
+            @Html.LabelFor(Model => Model.Salario)
+        </div>
+        <div>
+            @Html.EditorFor(Model => Model.Salario)
+            @Html.ValidationMessageFor(Model => Model.Salario)
+        </div>
+
+        <div>
+            <button type="submit"> Enviar </button>
+        </div>
+    </fieldset>
+}

@@ -8,6 +8,13 @@ namespace MontadoraEA.Models
 {
     public class Veiculo
     {
+        public Veiculo()
+        {
+            Cliente = new Cliente();
+            Usuario = new Usuario();
+            Montador = new Montador();
+        }
+        
         [Key]
         [Required]
         public int VeiculoId { get; set; }
@@ -26,19 +33,16 @@ namespace MontadoraEA.Models
         [Required]
         public string Modelo { get; set; }
 
-        [StringLength(50, ErrorMessage = "O tamanho máximo são 50 caracteres.")]
-        [Required]
+        
         public Cliente Cliente { get; set; }
 
-        [StringLength(50, ErrorMessage = "O tamanho máximo são 50 caracteres.")]
-        [Required]
+        
         public Usuario Usuario { get; set; }
 
-        [StringLength(50, ErrorMessage = "O tamanho máximo são 50 caracteres.")]
-        [Required]
+        
         public Montador Montador { get; set; }
 
-        [Required]
+        
         public IList<PecaDoVeiculo> PecaDoVeiculos { get; set; }
     }
 }

@@ -1,0 +1,58 @@
+﻿@model MontadoraEA.Models.Peca
+@{
+    ViewBag.Title = "Novo";
+}
+
+<h2>Nova Peça</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+<fieldset>
+    <legend>Dados do Cliente</legend>
+    <div>
+        @Html.LabelFor(Model => Model.Descricao)
+    </div>
+    <div>
+        @Html.EditorFor(Model => Model.Descricao)
+        @Html.ValidationMessageFor(Model => Model.Descricao)
+    </div>
+    <!--                                                             -->
+    <div>
+        @Html.LabelFor(Model => Model.NumeroSerie)
+    </div>
+    <div>
+        @Html.EditorFor(Model => Model.NumeroSerie)
+        @Html.ValidationMessageFor(Model => Model.NumeroSerie)
+    </div>
+
+    <div>
+        @Html.LabelFor(Model => Model.Fornecedor)
+    </div>
+    <div>
+        @Html.EditorFor(Model => Model.Fornecedor.Nome)
+        @Html.ValidationMessageFor(Model => Model.Fornecedor.Nome)
+    </div>
+
+    <div>
+        @Html.LabelFor(Model => Model.DataFabricacao)
+    </div>
+    <div>
+        @Html.EditorFor(Model => Model.DataFabricacao)
+        @Html.ValidationMessageFor(Model => Model.DataFabricacao)
+    </div>
+
+    <div>
+        @Html.LabelFor(Model => Model.Valor)
+    </div>
+    <div>
+        @Html.EditorFor(Model => Model.Valor)
+        @Html.ValidationMessageFor(Model => Model.Valor)
+    </div>
+
+
+    <div>
+        <button type="submit"> Enviar </button>
+    </div>
+</fieldset>
+}

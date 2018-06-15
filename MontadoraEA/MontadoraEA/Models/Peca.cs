@@ -8,6 +8,11 @@ namespace MontadoraEA.Models
 {
     public class Peca
     {
+        public Peca()
+        {
+            Fornecedor = new Fornecedor();
+        }
+
         [Key]
         public int PecaId { get; set; }
 
@@ -24,9 +29,7 @@ namespace MontadoraEA.Models
 
         [Required]
         public decimal Valor { get; set; }
-
-        [StringLength(30, ErrorMessage = "O tamanho máximo são 30 caracteres.")]
-        [Required]
+                
         public Fornecedor Fornecedor { get; set; }
     }
 }
