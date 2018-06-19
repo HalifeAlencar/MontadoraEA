@@ -14,7 +14,9 @@ namespace MontadoraEA.Controllers
         // GET: Cidade
         public ActionResult Index()
         {
-            return View();
+
+            return View(cidadeRepository.ListaCidade());
+           
         }
 
         public ActionResult Novo()

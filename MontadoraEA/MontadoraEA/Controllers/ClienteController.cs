@@ -27,11 +27,12 @@ namespace MontadoraEA.Controllers
         public ActionResult Novo(Cliente cliente)
         {
             if (ModelState.IsValid)//valida no lado do servidor
-            {
+            {              
                 clienteRepository.Adicionar(cliente);
             }
 
             return View(cliente);
+            
         }
     }
 }

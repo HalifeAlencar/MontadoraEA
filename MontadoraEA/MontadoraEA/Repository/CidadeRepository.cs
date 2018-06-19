@@ -13,7 +13,13 @@ namespace MontadoraEA.Repository
         public void Adicionar(Cidade cidade)
         {
             db.Cidade.Add(cidade);
-            db.SaveChanges();
+            db.SaveChanges();  
+          
+        }
+
+        public IEnumerable<Cidade> ListaCidade()
+        {
+           return db.Cidade.ToList();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model MontadoraEA.Models.Cidade
+﻿@model IEnumerable<MontadoraEA.Models.Cidade>
 @{
     ViewBag.Title = "Novo";
 }
@@ -31,4 +31,15 @@
             <button type="submit"> Enviar </button>
         </div>
     </fieldset>
+
+    <table class="table">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(Model => Model.Estado)
+            </td>
+            <td>
+                @Html.DisplayNameFor(Model => Model.Nome)
+            </td>
+        </tr>
+    </table>
 }
