@@ -35,5 +35,17 @@ namespace MontadoraEA.Controllers
             
             return View(cidade);
         }
+
+        public PartialViewResult ListaCidades()
+        {
+            List<Cidade> lista = new List<Cidade>();
+            var ordenada = lista.OrderBy(p => p.Nome);
+            foreach (var cidade in ordenada)
+            {
+                ViewBag.cidade = cidade.Nome;
+            }
+            return PartialView();
+         
+        }
     }
 }

@@ -19,6 +19,7 @@ namespace MontadoraEA.Models
 
         
         [Required]
+        [DisplayName("UF")]
         public Estado Estado { get; set; }
     }
 }
