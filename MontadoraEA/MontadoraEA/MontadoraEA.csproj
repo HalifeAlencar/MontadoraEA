@@ -269,7 +269,7 @@
     <Content Include="Views\Usuario\Novo.cshtml" />
     <Content Include="Views\Cliente\_Cidades.cshtml" />
     <Content Include="Views\Cidade\Index.cshtml" />
-    <Content Include="Views\Cidade\ListaCidades.cshtml" />
+    <Content Include="Views\Cidade\Detalhar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,5 +21,11 @@ namespace MontadoraEA.Repository
         {
            return db.Cidade.ToList();
         }
+
+        public Cidade BuscaCidade(int? id)
+        {
+            
+            return db.Cidade.Find(id);
+        }
     }
 }

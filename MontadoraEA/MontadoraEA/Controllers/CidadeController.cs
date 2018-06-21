@@ -1,51 +1,62 @@
-﻿using MontadoraEA.Models;
-using MontadoraEA.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using MontadoraEA.Models;
+using MontadoraEA.Repository;
 
 namespace MontadoraEA.Controllers
 {
     public class CidadeController : Controller
     {
         private readonly CidadeRepository cidadeRepository = new CidadeRepository();
-        // GET: Cidade
+
+        
         public ActionResult Index()
         {
-
             return View(cidadeRepository.ListaCidade());
-           
-        }
+        }               
 
         public ActionResult Novo()
         {
-            
             return View();
         }
 
         [HttpPost]
         public ActionResult Novo(Cidade cidade)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid)//valida no lado do servidor
             {
                 cidadeRepository.Adicionar(cidade);
             }
-            
+
             return View(cidade);
         }
 
-        public PartialViewResult ListaCidades()
+        public ActionResult Detalhar(int? id)
         {
-            List<Cidade> lista = new List<Cidade>();
-            var ordenada = lista.OrderBy(p => p.Nome);
-            foreach (var cidade in ordenada)
+            if(id == null)
             {
-                ViewBag.cidade = cidade.Nome;
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            return PartialView();
-         
+
+            Cidade cidade = cidadeRepository.BuscaCidade(id);
+
+            if (cidade == null)
+            {
+                return HttpNotFound();
+            }
+            return View(cidade);
         }
+
+
+
+
+
+
     }
 }
