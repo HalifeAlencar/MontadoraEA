@@ -22,11 +22,13 @@
             @Html.LabelFor(Model => Model.Nome)
         </div>
         <div>
-            @Html.EditorFor(Model => Model.Nome)
+            @Html.EditorFor(Model => Model.Nome, new { htmlAttributes = new { @style = "text-transform:uppercase" } })
             @Html.ValidationMessageFor(Model => Model.Nome)
         </div>
 
         <div>
+            <br />
+            @Html.ActionLink("Voltar","Index")
             <br />
             <button type="submit"> Enviar </button>
         </div>

@@ -1,0 +1,6 @@
+﻿@model IEnumerable<MontadoraEA.Models.Cidade>
+@using (Html.BeginForm("SelecionarCidade", "Cidade"))
+{
+    @Html.DropDownList("Cidades", "SELECIONE A CIDADE")
+    <input type="button" value="Adicionar Nova Cidade" class="btn btn-default" />
+}

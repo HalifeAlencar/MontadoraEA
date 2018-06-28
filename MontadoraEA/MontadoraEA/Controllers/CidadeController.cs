@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
 using MontadoraEA.Models;
 using MontadoraEA.Repository;
 
@@ -15,11 +16,11 @@ namespace MontadoraEA.Controllers
     {
         private readonly CidadeRepository cidadeRepository = new CidadeRepository();
 
-        
+
         public ActionResult Index()
         {
             return View(cidadeRepository.ListaCidade());
-        }               
+        }
 
         public ActionResult Novo()
         {
@@ -31,15 +32,17 @@ namespace MontadoraEA.Controllers
         {
             if (ModelState.IsValid)//valida no lado do servidor
             {
+                cidade.Nome = cidade.Nome.ToUpper();
                 cidadeRepository.Adicionar(cidade);
+                return RedirectToAction("Index");
             }
+            return View();
 
-            return View(cidade);
         }
 
         public ActionResult Detalhar(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -53,10 +56,64 @@ namespace MontadoraEA.Controllers
             return View(cidade);
         }
 
+        public PartialViewResult _ListarCidadePorEstado(Estado estado)
+        {
+            return PartialView(cidadeRepository.ListaCidadePorEstado(estado));
+        }
 
+        public ActionResult Editar(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
 
+            Cidade cidade = cidadeRepository.BuscaCidade(id);
 
+            if (cidade == null)
+            {
+                return HttpNotFound();
+            }
+            return View(cidade);
+        }
 
+        [HttpPost]
+        public ActionResult Editar(Cidade cidade)
+        {
+            if (ModelState.IsValid)
+            {
+                cidade.Nome = cidade.Nome.ToUpper();
+                cidadeRepository.Editar(cidade);
+
+                return RedirectToAction("Detalhar", new { id = cidade.CidadeId });
+            }
+
+            return View();
+        }
+
+        public ActionResult Excluir(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Cidade cidade = cidadeRepository.BuscaCidade(id);
+
+            if (cidade == null)
+            {
+                return HttpNotFound();
+            }
+            return View(cidade);
+        }
+
+        [HttpPost]
+        public ActionResult Excluir(Cidade cidade)
+        {
+            cidade = cidadeRepository.BuscaCidade(cidade.CidadeId);
+            cidadeRepository.Excluir(cidade);
+            return RedirectToAction("index");
+        }
 
     }
 }

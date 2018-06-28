@@ -1,0 +1,9 @@
+﻿@model IList<MontadoraEA.Models.Cidade>
+
+
+    @foreach (var i in Model)
+    {
+        <option value="@i.CidadeId">@i.Nome</option>
+    }
+
+

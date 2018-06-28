@@ -10,6 +10,7 @@ namespace MontadoraEA.Models
     public class Cidade
     {
         [Key]
+        [DisplayName("Código IBGE")]
         public int CidadeId { get; set; }
 
         [StringLength(50, ErrorMessage = "O tamanho máximo são 50 caracteres.")]
