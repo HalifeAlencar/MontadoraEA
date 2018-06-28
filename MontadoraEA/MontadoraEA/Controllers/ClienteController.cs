@@ -14,9 +14,9 @@ namespace MontadoraEA.Controllers
         // GET: Cliente
         public ActionResult Index()
         {
-            return View();
+            return View(clienteRepository.ListaCliente());
         }
-        
+
         public ActionResult Novo()
         {
 
@@ -26,13 +26,15 @@ namespace MontadoraEA.Controllers
         [HttpPost]
         public ActionResult Novo(Cliente cliente)
         {
+            cliente.Cidade.Nome = "AAA";
             if (ModelState.IsValid)//valida no lado do servidor
-            {              
+            {
                 clienteRepository.Adicionar(cliente);
+                return RedirectToAction("Index");
             }
-
             return View(cliente);
             
+
         }
     }
 }

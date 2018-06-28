@@ -63,16 +63,16 @@
         </div>
         <div>
             @Html.EnumDropDownListFor(Model => Model.Cidade.Estado)
+
             @Html.ValidationMessageFor(Model => Model.Cidade.Estado)
         </div>
 
         <div>
             @Html.LabelFor(Model => Model.Cidade.Nome)
-        </div>        
+        </div>
         <div>
-                  
-            @Html.EditorFor(Model => Model.Cidade.Nome)
-            @Html.ValidationMessageFor(Model => Model.Cidade.Nome)
+            <select name="Cidade.CidadeId" id="selectCidade" class="dropdown"></select>
+            @Html.ValidationMessageFor(Model => Model.Cidade)
         </div>
 
         <div>
@@ -90,8 +90,28 @@
             @Html.EditorFor(Model => Model.Rg)
             @Html.ValidationMessageFor(Model => Model.Rg)
         </div>
+        <br />
         <div>
-            <button type="submit"> Enviar </button>
+            <button type="submit" class="btn btn-default"> Enviar </button>
         </div>
     </fieldset>
+}
+
+
+
+@section scripts{
+
+
+    <script>
+
+
+        $('#Cidade_Estado').on('change', function () {
+            BuscarCidade();
+        });
+
+        function BuscarCidade() {
+            $('#selectCidade').load('@Url.Action("ListarCidadePorEstado", "Cidade")', { estado: $('#Cidade_Estado').val()});
+        }
+    </script>
+
 }

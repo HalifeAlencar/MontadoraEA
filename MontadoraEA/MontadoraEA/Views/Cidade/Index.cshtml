@@ -7,7 +7,10 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Cadastrar Cidade", "Novo")
+</p>
+<p>
+    @Html.ActionLink("Voltar", "Index","Home")
 </p>
 <table class="table">
     <tr>
@@ -31,7 +34,7 @@
         <td>
             @Html.ActionLink("Editar", "Editar", new { id=item.CidadeId }) |
             @Html.ActionLink("Detalhar", "Detalhar", new { id=item.CidadeId }) |
-            @Html.ActionLink("Deletar", "Deletar", new { id=item.CidadeId })
+            @Html.ActionLink("Deletar", "Excluir", new { id=item.CidadeId })
         </td>
     </tr>
 }

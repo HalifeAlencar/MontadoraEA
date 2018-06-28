@@ -8,46 +8,41 @@
 <dd>
     @Html.DisplayFor(model => model.Estado)
 </dd>
-
+<br />
 <dt>
     @Html.DisplayNameFor(model => model.CidadeId)
 </dt>
 <dd>
     @Html.DisplayFor(model => model.CidadeId)
 </dd>
-
+<br />
 <dt>
     @Html.DisplayNameFor(model => model.Nome)
 </dt>
 <dd>
     @Html.DisplayFor(model => model.Nome)
 </dd>
-@*<dt>
-        @Html.DisplayNameFor(model => model.CidadeId)
-    </dt>
-    <dd>
-        <table class="table">
+<br />
+<div>
+    @*<table class="table">
             <tr>
-                <th>Course Title</th>
-                <th>Grade</th>
+                <th>Cidade</th>
+                <th>EStado</th>
             </tr>
-            @foreach (var item in Model.Enrollments)
+            @foreach (var item in Model)
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem =>
-                       item.Course.Title)
+                        @Html.DisplayFor(modelItem =>item.Nome)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Grade)
+                        @Html.DisplayFor(modelItem => item.Estado)
                     </td>
                 </tr>
             }
-        </table>
-    </dd>
-     </dl>
-    </div>*@
+        </table>*@
+</div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CidadeId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Editar", new { id = Model.CidadeId }) |
+    @Html.ActionLink("Voltar", "Index")
 </p>

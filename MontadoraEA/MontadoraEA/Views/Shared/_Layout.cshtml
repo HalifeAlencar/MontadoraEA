@@ -13,15 +13,15 @@
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">MontadoraEA</a>
+            <a class="navbar-brand" href="~/Home/Index">MontadoraEA</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="#">Início <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="@Url.Action("Novo","Cliente")">Cliente</a>
+                <div class="navbar-nav">                    
+                    <a class="nav-item nav-link" href="@Url.Action("Index","Cliente")">Cliente</a>
                     <a class="nav-item nav-link" href="@Url.Action("Novo","Veiculo")">Veiculo</a>
+                    <a class="nav-item nav-link" href="@Url.Action("Index","Cidade")">Cidade</a>
                     <a class="nav-item nav-link" href="@Url.Action("Novo","Peca")">Peca</a>
                     <a class="nav-item nav-link" href="@Url.Action("Novo","Fornecedor")">Fornecedor</a>
                     <a class="nav-item nav-link" href="@Url.Action("Novo","Montador")">Montador</a>

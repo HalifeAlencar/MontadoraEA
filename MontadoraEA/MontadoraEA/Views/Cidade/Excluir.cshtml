@@ -1,0 +1,59 @@
+﻿@model MontadoraEA.Models.Cidade
+
+<br />
+
+
+<h2>Confirmar Exclusão</h2>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(Model => Model.CidadeId)
+    <br />
+    <br />
+    <br />
+    <p> Você realmente deseja excluir a cidade @Html.DisplayFor(model => model.Nome)?</p>
+    <dt>
+        @Html.DisplayNameFor(model => model.Estado)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Estado)
+    </dd>
+    <br />
+    <dt>
+        @Html.DisplayNameFor(model => model.CidadeId)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.CidadeId)
+    </dd>
+    <br />
+    <dt>
+        @Html.DisplayNameFor(model => model.Nome)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Nome)
+    </dd>
+    <br />
+    <div>
+        @*<table class="table">
+                <tr>
+                    <th>Cidade</th>
+                    <th>EStado</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem =>item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Estado)
+                        </td>
+                    </tr>
+                }
+            </table>*@
+    </div>
+    <p>
+        <button type="submit"> Excluir Definitivamente</button>
+        @Html.ActionLink("Voltar", "Index")
+    </p>
+
+}

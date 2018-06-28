@@ -15,5 +15,10 @@ namespace MontadoraEA.Repository
             db.Cliente.Add(cliente);
             db.SaveChanges();
         }
+
+        public IEnumerable<Cliente> ListaCliente()
+        {            
+            return db.Cliente.ToList();
+        }
     }
 }

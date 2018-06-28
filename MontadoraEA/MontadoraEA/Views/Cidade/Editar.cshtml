@@ -1,0 +1,38 @@
+﻿@model MontadoraEA.Models.Cidade
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar Cidade</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.CidadeId)
+<fieldset>
+    <legend>Editar Cidade</legend>
+    <div>
+        @Html.LabelFor(Model => Model.Estado)
+    </div>
+    <div>
+        @Html.EnumDropDownListFor(Model => Model.Estado)
+        @Html.ValidationMessageFor(Model => Model.Estado)
+    </div>
+        
+    <div>
+        @Html.LabelFor(Model => Model.Nome)
+    </div>
+    <div>
+
+        @Html.EditorFor(Model => Model.Nome, new { htmlAttributes = new { @style = "text-transform:uppercase" } })
+        @Html.ValidationMessageFor(Model => Model.Nome) @*não prestou o uppercase, fazer no back end*@
+    </div>
+
+    <div>
+        <br />
+        @Html.ActionLink("Voltar", "Index")
+        <br />
+        <button type="submit"> Enviar </button>
+    </div>
+</fieldset>
+}
