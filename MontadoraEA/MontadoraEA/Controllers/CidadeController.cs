@@ -56,7 +56,7 @@ namespace MontadoraEA.Controllers
             return View(cidade);
         }
 
-        public PartialViewResult _ListarCidadePorEstado(Estado estado)
+        public PartialViewResult ListarCidadePorEstado(Estado estado)
         {
             return PartialView(cidadeRepository.ListaCidadePorEstado(estado));
         }

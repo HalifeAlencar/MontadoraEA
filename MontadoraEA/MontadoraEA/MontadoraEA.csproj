@@ -317,6 +317,7 @@
     <Content Include="Views\Cliente\Index.cshtml" />
     <Content Include="Views\Cidade\Editar.cshtml" />
     <Content Include="Views\Cidade\Excluir.cshtml" />
+    <Content Include="Views\Cidade\ListarCidadePorEstado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

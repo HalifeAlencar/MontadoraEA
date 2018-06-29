@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace MontadoraEA.Repository
 {
@@ -16,9 +17,9 @@ namespace MontadoraEA.Repository
             db.SaveChanges();
         }
 
-        public IEnumerable<Cliente> ListaCliente()
+        public IList<Cliente> ListaCliente()
         {            
-            return db.Cliente.ToList();
+            return db.Cliente.Include(x => x.Cidade).ToList();
         }
     }
 }

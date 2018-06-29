@@ -26,7 +26,7 @@ namespace MontadoraEA.Controllers
         [HttpPost]
         public ActionResult Novo(Cliente cliente)
         {
-            cliente.Cidade.Nome = "AAA";
+            
             if (ModelState.IsValid)//valida no lado do servidor
             {
                 clienteRepository.Adicionar(cliente);

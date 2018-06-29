@@ -18,7 +18,7 @@
             @Html.EditorFor(Model => Model.Nome)
             @Html.ValidationMessageFor(Model => Model.Nome)
         </div>
-        <!--                                                             -->
+
         <div>
             @Html.LabelFor(Model => Model.ESexo)
         </div>
@@ -71,7 +71,8 @@
             @Html.LabelFor(Model => Model.Cidade.Nome)
         </div>
         <div>
-            <select name="Cidade.CidadeId" id="selectCidade" class="dropdown"></select>
+            <select name="Cidade.CidadeId" id="selectCidade" class="form-control"></select>
+            <input type="hidden" name="Cidade.Nome" id="nomeCidade" />
             @Html.ValidationMessageFor(Model => Model.Cidade)
         </div>
 
@@ -96,22 +97,24 @@
         </div>
     </fieldset>
 }
-
-
-
 @section scripts{
 
-
     <script>
-
-
         $('#Cidade_Estado').on('change', function () {
             BuscarCidade();
         });
-
         function BuscarCidade() {
             $('#selectCidade').load('@Url.Action("ListarCidadePorEstado", "Cidade")', { estado: $('#Cidade_Estado').val()});
         }
+
+        $("#selectCidade").on('change', function () {
+            var conteudo = $("#selectCidade option:selected").text();
+            alert(conteudo);
+            $("#nomeCidade").val(conteudo)
+        });
+
+       
+
     </script>
 
 }
