@@ -1,17 +1,17 @@
 ﻿@model IEnumerable<MontadoraEA.Models.Cidade>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = @Html.DisplayNameFor(Model => Model.Nome);
 }
 
-<h2>Index</h2>
+<h2>@Html.DisplayNameFor(Model => Model.Nome)</h2>
 
-<p>
-    @Html.ActionLink("Cadastrar Cidade", "Novo")
-</p>
-<p>
-    @Html.ActionLink("Voltar", "Index","Home")
-</p>
+<br />
+@Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-outline-secondary" })
+@Html.ActionLink("Cadastrar Cidade", "Novo", null, new { @class = "btn btn-outline-primary" })
+<p></p>
+
+
 <table class="table">
     <tr>
         <th>
@@ -20,23 +20,30 @@
         <th>
             @Html.DisplayNameFor(model => model.Estado)
         </th>
-        <th></th>
+        <th>
+            <header class="text-center">Ações</header>
+        </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estado)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Editar", new { id=item.CidadeId }) |
-            @Html.ActionLink("Detalhar", "Detalhar", new { id=item.CidadeId }) |
-            @Html.ActionLink("Deletar", "Excluir", new { id=item.CidadeId })
-        </td>
-    </tr>
-}
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                <div class="float-right">
+                    @Html.ActionLink("Visualizar", "Visualizar", null, new { id = item.CidadeId }, new { @class = "btn btn-outline-info" })
+                    @Html.ActionLink("Editar", "Editar", null, new { id = item.CidadeId }, new { @class = "btn btn-outline-warning" })
+                    @Html.ActionLink("Excluir", "Excluir", null, new { id = item.CidadeId }, new { @class = "btn btn-outline-danger" })
+                </div>
+            </td>
+        </tr>
+
+    }
 
 </table>

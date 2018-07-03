@@ -40,7 +40,7 @@ namespace MontadoraEA.Controllers
 
         }
 
-        public ActionResult Detalhar(int? id)
+        public ActionResult Visualizar (int? id)
         {
             if (id == null)
             {

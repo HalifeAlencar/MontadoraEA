@@ -14,7 +14,7 @@
             @Html.LabelFor(Model => Model.Estado)
         </div>
         <div>
-            @Html.EnumDropDownListFor(Model => Model.Estado)
+            @Html.EnumDropDownListFor(Model => Model.Estado, new { @class = "form-control" })
             @Html.ValidationMessageFor(Model => Model.Estado)
         </div>
 
@@ -22,15 +22,15 @@
             @Html.LabelFor(Model => Model.Nome)
         </div>
         <div>
-            @Html.EditorFor(Model => Model.Nome, new { htmlAttributes = new { @style = "text-transform:uppercase" } })
+            @Html.EditorFor(Model => Model.Nome, new { htmlAttributes = new { @style = "text-transform:uppercase", @class = "form-control" } })
             @Html.ValidationMessageFor(Model => Model.Nome)
         </div>
 
         <div>
             <br />
-            @Html.ActionLink("Voltar","Index")
-            <br />
-            <button type="submit"> Enviar </button>
+            @Html.ActionLink("Cancelar","Index", null, new { @class = "btn btn-outline-secondary" })
+            
+            <button type="submit" class="btn btn-outline-primary">Salvar</button>
         </div>
     </fieldset>
 

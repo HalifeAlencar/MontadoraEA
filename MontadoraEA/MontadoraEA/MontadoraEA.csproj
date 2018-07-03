@@ -311,9 +311,8 @@
     <Content Include="Views\Veiculo\Novo.cshtml" />
     <Content Include="Views\Usuario\Novo.cshtml" />
     <Content Include="Views\Cidade\Index.cshtml" />
-    <Content Include="Views\Cidade\Detalhar.cshtml" />
+    <Content Include="Views\Cidade\Visualizar.cshtml" />
     <Content Include="Views\Cidade\SelecionarCidade.cshtml" />
-    <Content Include="Views\Shared\_ListarCidadePorEstado.cshtml" />
     <Content Include="Views\Cliente\Index.cshtml" />
     <Content Include="Views\Cidade\Editar.cshtml" />
     <Content Include="Views\Cidade\Excluir.cshtml" />

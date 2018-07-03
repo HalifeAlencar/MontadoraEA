@@ -51,9 +51,9 @@
                 }
             </table>*@
     </div>
-    <p>
-        <button type="submit"> Excluir Definitivamente</button>
-        @Html.ActionLink("Voltar", "Index")
+    <p>        
+        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-outline-secondary btn-md" })
+        <button type="submit" class = "btn btn-outline-danger btn-md"> Excluir Definitivamente</button>
     </p>
 
 }
