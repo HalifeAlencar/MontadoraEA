@@ -1,49 +1,25 @@
-﻿@model IEnumerable<MontadoraEA.Models.Cidade>
-
-@{
-    ViewBag.Title = @Html.DisplayNameFor(Model => Model.Nome);
-}
-
-<h2>@Html.DisplayNameFor(Model => Model.Nome)</h2>
-
-<br />
+﻿<br />
 @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-outline-secondary" })
 @Html.ActionLink("Cadastrar Cidade", "Novo", null, new { @class = "btn btn-outline-primary" })
 <p></p>
 
+<div id="divcidades">
+    @Html.Partial("_ListaCidades")
+</div>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estado)
-        </th>
-        <th>
-            <header class="text-center">Ações</header>
-        </th>
-    </tr>
+<div class="modal" id="modal">
 
+</div>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                <div class="float-right">
-                    @Html.ActionLink("Visualizar", "Visualizar", null, new { id = item.CidadeId }, new { @class = "btn btn-outline-info" })
-                    @Html.ActionLink("Editar", "Editar", null, new { id = item.CidadeId }, new { @class = "btn btn-outline-warning" })
-                    @Html.ActionLink("Excluir", "Excluir", null, new { id = item.CidadeId }, new { @class = "btn btn-outline-danger" })
-                </div>
-            </td>
-        </tr>
-
-    }
-
-</table>
+@section scripts{
+    <script>
+        $(function () {
+            $('.visualizar').click(function () {
+                var id = $(this).attr('data-id');
+                $('#modal').load("visualizar?id=" + id, function () {
+                    $('#modal').modal();
+                })
+            })
+        })
+    </script>
+}

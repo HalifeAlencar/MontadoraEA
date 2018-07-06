@@ -1,56 +1,34 @@
 ﻿@model MontadoraEA.Models.Cidade
-
-<br />
-
-
-<h2>Confirmar Exclusão</h2>
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(Model => Model.CidadeId)
     <br />
+    <fildset>
+        <legend>Excluir</legend>
+        <p><h4> Você realmente deseja excluir a cidade @Html.DisplayFor(model => model.Nome)? </h4> </p>
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.CidadeId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CidadeId)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+    </fildset>
     <br />
-    <br />
-    <p> Você realmente deseja excluir a cidade @Html.DisplayFor(model => model.Nome)?</p>
-    <dt>
-        @Html.DisplayNameFor(model => model.Estado)
-    </dt>
-    <dd>
-        @Html.DisplayFor(model => model.Estado)
-    </dd>
-    <br />
-    <dt>
-        @Html.DisplayNameFor(model => model.CidadeId)
-    </dt>
-    <dd>
-        @Html.DisplayFor(model => model.CidadeId)
-    </dd>
-    <br />
-    <dt>
-        @Html.DisplayNameFor(model => model.Nome)
-    </dt>
-    <dd>
-        @Html.DisplayFor(model => model.Nome)
-    </dd>
-    <br />
-    <div>
-        @*<table class="table">
-                <tr>
-                    <th>Cidade</th>
-                    <th>EStado</th>
-                </tr>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem =>item.Nome)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Estado)
-                        </td>
-                    </tr>
-                }
-            </table>*@
-    </div>
+    
     <p>        
         @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-outline-secondary btn-md" })
         <button type="submit" class = "btn btn-outline-danger btn-md"> Excluir Definitivamente</button>

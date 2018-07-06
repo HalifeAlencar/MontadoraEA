@@ -19,7 +19,7 @@ namespace MontadoraEA.Controllers
 
         public ActionResult Index()
         {
-            return View(cidadeRepository.ListaCidade());
+            return View(cidadeRepository.ListaCidade().OrderBy(p => p.Nome));
         }
 
         public ActionResult Novo()
@@ -40,7 +40,7 @@ namespace MontadoraEA.Controllers
 
         }
 
-        public ActionResult Visualizar (int? id)
+        public ActionResult Visualizar(int? id)
         {
             if (id == null)
             {
@@ -54,6 +54,11 @@ namespace MontadoraEA.Controllers
                 return HttpNotFound();
             }
             return View(cidade);
+        }
+
+        public PartialViewResult _ListaCidades(Cidade cidade)
+        {
+            return PartialView(cidadeRepository.ListaCidade().OrderBy(p => p.Nome));
         }
 
         public PartialViewResult ListarCidadePorEstado(Estado estado)

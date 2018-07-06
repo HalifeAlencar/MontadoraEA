@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MontadoraEA.Models.Cidade>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th>
+            <header class="text-center">Ações</header>
+        </th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                <div class="float-right">
+                    @*@Html.ActionLink("Visualizar", "Visualizar", null, new { id = item.CidadeId }, new { @class = "btn btn-outline-info" })
+                        @Html.ActionLink("Editar", "Editar", null, new { id = item.CidadeId }, new { @class = "btn btn-outline-warning" })
+                        @Html.ActionLink("Excluir", "Excluir", null, new { id = item.CidadeId }, new { @class = "btn btn-outline-danger", })*@
+                    <button class="btn btn-outline-info visualizar" data-id="@item.CidadeId"> Visualizar </button>
+                    <button class="btn btn-outline-warning editar" data-id="@item.CidadeId"> Editar </button>
+                    <button class="btn btn-outline-danger excluir" data-id="@item.CidadeId"> Excluir </button>
+                </div>
+            </td>
+        </tr>
+    }
+</table>
+
+
+
+
+
+

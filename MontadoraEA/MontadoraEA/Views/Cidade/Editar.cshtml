@@ -1,38 +1,36 @@
 ﻿@model MontadoraEA.Models.Cidade
+<br />
 @{
     ViewBag.Title = "Editar";
 }
-
-<h2>Editar Cidade</h2>
-
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
     @Html.HiddenFor(model => model.CidadeId)
-<fieldset>
-    <legend>Editar Cidade</legend>
-    <div>
-        @Html.LabelFor(Model => Model.Estado)
-    </div>
-    <div>
-        @Html.EnumDropDownListFor(Model => Model.Estado, new { @class = "form-control" })
-        @Html.ValidationMessageFor(Model => Model.Estado)
-    </div>
-        
-    <div>
-        @Html.LabelFor(Model => Model.Nome)
-    </div>
+    <fieldset>
+        <legend>Editar</legend>
+        <div>
+            @Html.LabelFor(Model => Model.Estado)
+        </div>
+        <div>
+            @Html.EnumDropDownListFor(Model => Model.Estado, new { @class = "form-control" })
+            @Html.ValidationMessageFor(Model => Model.Estado)
+        </div>
 
-    <div>
-        @Html.EditorFor(Model => Model.Nome, new { htmlAttributes = new { @style = "text-transform:uppercase", @class = "form-control" } })
-        @Html.ValidationMessageFor(Model => Model.Nome)
-    </div>
+        <div>
+            @Html.LabelFor(Model => Model.Nome)
+        </div>
 
-    <div>
-        <br />
-        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-outline-secondary" })
-        
-        <button type="submit" class="btn btn-outline-primary"> Salvar </button>
-    </div>
-</fieldset>
+        <div>
+            @Html.EditorFor(Model => Model.Nome, new { htmlAttributes = new { @style = "text-transform:uppercase", @class = "form-control" } })
+            @Html.ValidationMessageFor(Model => Model.Nome)
+        </div>
+
+        <div>
+            <br />
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-outline-secondary" })
+
+            <button type="submit" class="btn btn-outline-primary"> Salvar Alterações </button>
+        </div>
+    </fieldset>
 }
