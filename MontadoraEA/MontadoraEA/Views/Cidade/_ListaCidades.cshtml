@@ -1,4 +1,12 @@
 ﻿@model IEnumerable<MontadoraEA.Models.Cidade>
+
+@using (Html.BeginForm())
+{
+    @Html.TextBox("txtBusca", null, new {@class = "form-control" });
+    <input type="submit" value="Pesquisar" class="btn btn-outline-success"/>
+}
+<br />
+
 <table class="table">
     <tr>
         <th>
@@ -24,12 +32,12 @@
             </td>
             <td>
                 <div class="float-right">
-                    @*@Html.ActionLink("Visualizar", "Visualizar", null, new { id = item.CidadeId }, new { @class = "btn btn-outline-info" })
-                        @Html.ActionLink("Editar", "Editar", null, new { id = item.CidadeId }, new { @class = "btn btn-outline-warning" })
-                        @Html.ActionLink("Excluir", "Excluir", null, new { id = item.CidadeId }, new { @class = "btn btn-outline-danger", })*@
-                    <button class="btn btn-outline-info visualizar" data-id="@item.CidadeId"> Visualizar </button>
-                    <button class="btn btn-outline-warning editar" data-id="@item.CidadeId"> Editar </button>
-                    <button class="btn btn-outline-danger excluir" data-id="@item.CidadeId"> Excluir </button>
+                    @Html.ActionLink("Visualizar", "Visualizar", null, new { id = item.CidadeId }, new { @class = "btn btn-outline-info" })
+                    @*@<button class="btn btn-outline-info visualizar" data-id="@item.CidadeId"> Visualizar </button>
+                                    <button class="btn btn-outline-warning editar" data-id="@item.CidadeId"> Editar </button>
+                        <button class="btn btn-outline-danger excluir" data-id="@item.CidadeId"> Excluir </button>*@
+                    @Html.ActionLink("Editar", "Editar", null, new { id = item.CidadeId }, new { @class = "btn btn-outline-warning" })
+                    @Html.ActionLink("Excluir", "Excluir", null, new { id = item.CidadeId }, new { @class = "btn btn-outline-danger", })
                 </div>
             </td>
         </tr>

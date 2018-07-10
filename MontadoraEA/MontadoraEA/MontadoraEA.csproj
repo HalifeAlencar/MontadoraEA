@@ -330,7 +330,8 @@
     <Content Include="Views\Cidade\Excluir.cshtml" />
     <Content Include="Views\Cidade\ListarCidadePorEstado.cshtml" />
     <Content Include="Views\Cidade\_ListaCidades.cshtml" />
-    <Content Include="Views\Cidade\_VisualizaCidade.cshtml" />
+    <Content Include="Views\Cliente\_ListaClientes.cshtml" />
+    <Content Include="Views\Cliente\Visualizar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

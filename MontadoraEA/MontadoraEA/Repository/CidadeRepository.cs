@@ -16,7 +16,6 @@ namespace MontadoraEA.Repository
         {
             db.Cidade.Add(cidade);
             db.SaveChanges();
-
         }
 
         public IEnumerable<Cidade> ListaCidade()
@@ -47,5 +46,9 @@ namespace MontadoraEA.Repository
             db.SaveChanges();
         }
         
+        public IEnumerable<Cidade> Pesquisar(string texto)
+        {
+            return db.Cidade.Where(x => x.Nome.Contains(texto)).OrderBy(x => x.Nome);
+        }
     }
 }

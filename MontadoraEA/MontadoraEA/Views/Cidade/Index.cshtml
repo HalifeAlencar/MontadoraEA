@@ -1,4 +1,7 @@
-﻿<br />
+﻿@{
+    ViewBag.Title = "Cidade";
+}
+<br />
 @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-outline-secondary" })
 @Html.ActionLink("Cadastrar Cidade", "Novo", null, new { @class = "btn btn-outline-primary" })
 <p></p>
@@ -7,19 +10,21 @@
     @Html.Partial("_ListaCidades")
 </div>
 
-<div class="modal" id="modal">
+@*<div class="modal" id="modal">
 
-</div>
+    </div>*@
+
+
 
 @section scripts{
-    <script>
-        $(function () {
-            $('.visualizar').click(function () {
-                var id = $(this).attr('data-id');
-                $('#modal').load("visualizar?id=" + id, function () {
-                    $('#modal').modal();
+    @*<script>
+            $(function () {
+                $('.visualizar').click(function () {
+                    var id = $(this).attr('data-id');
+                    $('#modal').load("visualizar?id=" + id, function () {
+                        $('#modal').modal();
+                    })
                 })
             })
-        })
-    </script>
+        </script>*@
 }

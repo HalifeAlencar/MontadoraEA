@@ -15,22 +15,20 @@
             @Html.LabelFor(Model => Model.Nome)
         </div>
         <div>
-            @Html.EditorFor(Model => Model.Nome)
+            @Html.EditorFor(Model => Model.Nome, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(Model => Model.Nome)
         </div>
-
         <div>
             @Html.LabelFor(Model => Model.ESexo)
         </div>
         <div>
-            @Html.EnumDropDownListFor(Model => Model.ESexo)
+            @Html.EnumDropDownListFor(Model => Model.ESexo, new { @class = "form-control" })
         </div>
-
         <div>
             @Html.LabelFor(Model => Model.Cpf)
         </div>
         <div>
-            @Html.EditorFor(Model => Model.Cpf)
+            @Html.EditorFor(Model => Model.Cpf, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(Model => Model.Cpf)
         </div>
 
@@ -38,7 +36,7 @@
             @Html.LabelFor(Model => Model.DataNascimento)
         </div>
         <div>
-            @Html.EditorFor(Model => Model.DataNascimento)
+            @Html.EditorFor(Model => Model.DataNascimento, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(Model => Model.DataNascimento)
         </div>
 
@@ -46,7 +44,7 @@
             @Html.LabelFor(Model => Model.Endereco)
         </div>
         <div>
-            @Html.EditorFor(Model => Model.Endereco)
+            @Html.EditorFor(Model => Model.Endereco, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(Model => Model.Endereco)
         </div>
 
@@ -54,7 +52,7 @@
             @Html.LabelFor(Model => Model.Numero)
         </div>
         <div>
-            @Html.EditorFor(Model => Model.Numero)
+            @Html.EditorFor(Model => Model.Numero, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(Model => Model.Numero)
         </div>
 
@@ -62,7 +60,7 @@
             @Html.LabelFor(Model => Model.Cidade.Estado)
         </div>
         <div>
-            @Html.EnumDropDownListFor(Model => Model.Cidade.Estado)
+            @Html.EnumDropDownListFor(Model => Model.Cidade.Estado, new { @class = "form-control" })
 
             @Html.ValidationMessageFor(Model => Model.Cidade.Estado)
         </div>
@@ -72,7 +70,7 @@
         </div>
         <div>
             <select name="Cidade.CidadeId" id="selectCidade" class="form-control"></select>
-            <input type="hidden" name="Cidade.Nome" id="nomeCidade"/>
+            <input type="hidden" name="Cidade.Nome" id="nomeCidade" />
             @Html.ValidationMessageFor(Model => Model.Cidade)
         </div>
 
@@ -80,7 +78,7 @@
             @Html.LabelFor(Model => Model.OrgaoExpedidor)
         </div>
         <div>
-            @Html.EditorFor(Model => Model.OrgaoExpedidor)
+            @Html.EditorFor(Model => Model.OrgaoExpedidor, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(Model => Model.OrgaoExpedidor)
         </div>
 
@@ -88,12 +86,13 @@
             @Html.LabelFor(Model => Model.Rg)
         </div>
         <div>
-            @Html.EditorFor(Model => Model.Rg)
+            @Html.EditorFor(Model => Model.Rg, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(Model => Model.Rg)
         </div>
         <br />
         <div>
-            <button type="submit" class="btn btn-default"> Enviar </button>
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-outline-secondary" })
+            <button type="submit" class="btn btn-outline-primary"> Salvar </button>
         </div>
     </fieldset>
 }
@@ -112,8 +111,6 @@
             alert(conteudo);
             $("#nomeCidade").val(conteudo)
         });
-
-       
 
     </script>
 

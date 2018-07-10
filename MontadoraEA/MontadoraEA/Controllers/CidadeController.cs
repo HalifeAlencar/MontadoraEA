@@ -22,6 +22,21 @@ namespace MontadoraEA.Controllers
             return View(cidadeRepository.ListaCidade().OrderBy(p => p.Nome));
         }
 
+        [HttpPost]
+        public ActionResult Index(FormCollection form)
+        {
+            string query = form["txtBusca"];
+
+            if (!string.IsNullOrWhiteSpace(query))
+            {                
+                return View(cidadeRepository.Pesquisar(query));
+            }
+            else
+            {                
+                return View(cidadeRepository.ListaCidade());
+            }
+        }
+
         public ActionResult Novo()
         {
             return View();
@@ -34,6 +49,7 @@ namespace MontadoraEA.Controllers
             {
                 cidade.Nome = cidade.Nome.ToUpper();
                 cidadeRepository.Adicionar(cidade);
+                ViewBag.theresult = true;
                 return RedirectToAction("Index");
             }
             return View();
@@ -90,7 +106,7 @@ namespace MontadoraEA.Controllers
                 cidade.Nome = cidade.Nome.ToUpper();
                 cidadeRepository.Editar(cidade);
 
-                return RedirectToAction("Detalhar", new { id = cidade.CidadeId });
+                return RedirectToAction("Visualizar", new { id = cidade.CidadeId });
             }
 
             return View();
@@ -119,6 +135,5 @@ namespace MontadoraEA.Controllers
             cidadeRepository.Excluir(cidade);
             return RedirectToAction("index");
         }
-
     }
 }

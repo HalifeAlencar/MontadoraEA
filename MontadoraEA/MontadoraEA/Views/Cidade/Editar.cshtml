@@ -30,7 +30,8 @@
             <br />
             @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-outline-secondary" })
 
-            <button type="submit" class="btn btn-outline-primary"> Salvar Alterações </button>
+            <button type="submit" class="btn btn-outline-primary" data-id="@Model.CidadeId"> Salvar Alterações </button>
+            
         </div>
     </fieldset>
 }
