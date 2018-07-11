@@ -2,21 +2,35 @@
     ViewBag.Title = "Cidade";
 }
 <br />
-@Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-outline-secondary" })
-@Html.ActionLink("Cadastrar Cidade", "Novo", null, new { @class = "btn btn-outline-primary" })
-<p></p>
+<div class="form-row form-inline">
+
+    @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-outline-secondary col-md-1" })
+    <div class="col-md-auto"></div>
+    @Html.ActionLink("Cadastrar Cidade", "Novo", null, new { @class = "btn btn-outline-primary col-md-2" })
+    <div class="col-md-5"></div>
+    <div class="col-md-auto">
+        @using (Html.BeginForm())
+        {
+            @Html.TextBox("txtBusca", null, new { @class = "form-control col-auto" });
+            <input type="submit" value="Pesquisar" class="btn btn-outline-dark col-auto" />
+        }
+    </div>
+</div>
+
 
 <div id="divcidades">
     @Html.Partial("_ListaCidades")
 </div>
-
 @*<div class="modal" id="modal">
 
     </div>*@
 
-
-
 @section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#tabelacidade').dataTable();
+        });
+    </script>
     @*<script>
             $(function () {
                 $('.visualizar').click(function () {
