@@ -18,7 +18,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">                    
+                <div class="navbar-nav">
                     <a class="nav-item nav-link" href="@Url.Action("Index","Cliente")">Cliente</a>
                     <a class="nav-item nav-link" href="@Url.Action("Novo","Veiculo")">Veiculo</a>
                     <a class="nav-item nav-link" href="@Url.Action("Index","Cidade")">Cidade</a>
@@ -39,9 +39,9 @@
             <p>&copy; @DateTime.Now.Year</p>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jquery.dataTables")
     @RenderSection("scripts", required: false)
 </body>
 </html>
