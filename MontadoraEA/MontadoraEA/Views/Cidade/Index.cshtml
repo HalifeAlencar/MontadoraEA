@@ -1,39 +1,11 @@
 ﻿@{
     ViewBag.Title = "Cidade";
 }
-
-<div class="modal fade" tabindex="-1" role="dialog" id="meumodal">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Modal title</h4>
-            </div>
-            <div class="modal-body">
-                <p>One fine body&hellip;</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
+<div class="modal fade" id="divmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 <br />
 <div class="form-row form-inline">
-
-    @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-outline-secondary col-md-1" })
-    <div class="col-md-auto"></div>
-    @Html.ActionLink("Cadastrar Cidade", "Novo", null, new { @class = "btn btn-outline-primary col-md-2" })
-    <div class="col-md-5"></div>
-    @*<div class="col-md-auto"> implementação antiga de pesquisa
-            @using (Html.BeginForm())
-            {
-                @Html.TextBox("txtBusca", null, new { @class = "form-control col-auto" });
-                <input type="submit" value="Pesquisar" class="btn btn-outline-dark col-auto" />
-            }
-        </div>*@
+    @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-outline-secondary" })
+    @Html.ActionLink("Cadastrar Cidade", "Novo", null, new { @class = "btn btn-outline-primary" })
 </div>
 
 <div id="divcidades">
@@ -42,6 +14,33 @@
 
 @section scripts{
     <script>
+        $(function () {
+            $(".visualizar").click(function () {
+                var id = $(this).attr("data-id");
+                $("#divmodal").load("Visualizar?id=" + id, function () {
+                    $("#divmodal").modal();
+                })
+            });
+        })
+
+        $(function () {
+            $(".editar").click(function () {
+                var id = $(this).attr("data-id");
+                $("#divmodal").load("Editar?id=" + id, function () {
+                    $("#divmodal").modal();
+                })
+            });
+        })
+
+        $(function () {
+            $(".excluir").click(function () {
+                var id = $(this).attr("data-id");
+                $("#divmodal").load("Excluir?id=" + id, function () {
+                    $("#divmodal").modal();
+                })
+            });
+        })
+
         $(document).ready(function () {
             $('#tabelacidade').dataTable({
                 "language": {
@@ -69,21 +68,6 @@
                 }
             });
         });
-
-        $(document).ready(function () {
-            $('#meumodal').modal();
-        });
     </script>
-    @*<script>
-            $(function () {
-                $('.visualizar').click(function () {
-                    var id = $(this).attr('data-id');
-                    $('#modal').load("visualizar?id=" + id, function () {
-                        $('#modal').modal();
-                    })
-                })
-            })
-        </script>*@
 }
-
 

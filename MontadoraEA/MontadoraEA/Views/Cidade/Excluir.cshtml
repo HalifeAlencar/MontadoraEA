@@ -1,37 +1,87 @@
 ﻿@model MontadoraEA.Models.Cidade
-@using (Html.BeginForm())
-{
-    @Html.HiddenFor(Model => Model.CidadeId)
-    <br />
-    <fildset>
-        <legend>Excluir</legend>
-        <p><h4> Você realmente deseja excluir a cidade @Html.DisplayFor(model => model.Nome)? </h4> </p>
-        <dt>
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-        <br />
-        <dt>
-            @Html.DisplayNameFor(model => model.CidadeId)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CidadeId)
-        </dd>
-        <br />
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-    </fildset>
-    <br />
-    
-    <p>        
-        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-outline-secondary btn-md" })
-        <button type="submit" class = "btn btn-outline-danger btn-md"> Excluir Definitivamente</button>
-    </p>
-
+@{
+    Layout = null;
+    ViewBag.title = "Visualizar";
 }
+<div class="modal-dialog">
+    <div class="modal-content">
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(Model => Model.CidadeId)
+
+            <div class="modal-header">
+                <h4 class="modal-title">Excluir</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <br />
+                <fildset>
+                    <p><b>Você realmente deseja excluir a cidade @Html.DisplayFor(model => model.Nome)?</b></p>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Estado)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Estado)
+                    </dd>
+                    <br />
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CidadeId)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.CidadeId)
+                    </dd>
+                    <br />
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Nome)
+                    </dd>
+                </fildset>
+                <br />
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-outline-danger"> Excluir Definitivamente</button>
+            </div>
+        }
+    </div>
+</div>
+
+@*@using (Html.BeginForm())
+    {
+        @Html.HiddenFor(Model => Model.CidadeId)
+        <br />
+        <fildset>
+            <legend>Excluir</legend>
+            <p><h4> Você realmente deseja excluir a cidade @Html.DisplayFor(model => model.Nome)? </h4> </p>
+            <dt>
+                @Html.DisplayNameFor(model => model.Estado)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Estado)
+            </dd>
+            <br />
+            <dt>
+                @Html.DisplayNameFor(model => model.CidadeId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CidadeId)
+            </dd>
+            <br />
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+        </fildset>
+        <br />
+
+        <p>
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-outline-secondary btn-md" })
+            <button type="submit" class = "btn btn-outline-danger btn-md"> Excluir Definitivamente</button>
+        </p>
+
+    }*@

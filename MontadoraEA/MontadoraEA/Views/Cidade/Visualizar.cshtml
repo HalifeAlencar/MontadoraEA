@@ -1,53 +1,52 @@
 ﻿@model MontadoraEA.Models.Cidade
-
 @{
-    //Layout = null;
+    Layout = null;
     ViewBag.title = "Visualizar";
 }
-@*<div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title"> Visualizar </h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-                <p>@Html.DisplayNameFor(model => model.Estado): @Html.DisplayFor(model => model.Estado)</p>
-                <p>@Html.DisplayNameFor(model => model.Nome):  @Html.DisplayFor(model => model.Nome)</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Fechar</button>
-            </div>
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Visualizar</h4>
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
         </div>
-    </div>*@
+        <div class="modal-body">
+            <p>@Html.DisplayNameFor(model => model.Estado): @Html.DisplayFor(model => model.Estado)</p>
+            <p>@Html.DisplayNameFor(model => model.Nome):  @Html.DisplayFor(model => model.Nome)</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Fechar</button>
+        </div>
+    </div>
+</div>
 
-<br />
-<fieldset>
-    <legend> Visualizar </legend>
+@*<br />
+    <fieldset>
+        <legend> Visualizar </legend>
 
-    <dt>
-        @Html.DisplayNameFor(model => model.Estado)
-    </dt>
-    <dd>
-        @Html.DisplayFor(model => model.Estado)
-    </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.CidadeId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CidadeId)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+    </fieldset>
     <br />
-    <dt>
-        @Html.DisplayNameFor(model => model.CidadeId)
-    </dt>
-    <dd>
-        @Html.DisplayFor(model => model.CidadeId)
-    </dd>
-    <br />
-    <dt>
-        @Html.DisplayNameFor(model => model.Nome)
-    </dt>
-    <dd>
-        @Html.DisplayFor(model => model.Nome)
-    </dd>
-</fieldset>
-<br />
-<p>
-    @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-outline-secondary" })
-    @Html.ActionLink("Editar", "Editar", null, new { id = Model.CidadeId }, new { @class = "btn btn-outline-warning" })
-</p>
+    <p>
+        @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-outline-secondary" })
+        @Html.ActionLink("Editar", "Editar", null, new { id = Model.CidadeId }, new { @class = "btn btn-outline-warning" })
+    </p>*@
 
