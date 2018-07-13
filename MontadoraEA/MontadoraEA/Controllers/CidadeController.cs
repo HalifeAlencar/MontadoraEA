@@ -52,7 +52,11 @@ namespace MontadoraEA.Controllers
                 ViewBag.theresult = true;
                 return RedirectToAction("Index");
             }
-            return View();
+            else
+            {
+
+            }
+            return View(); //meu problema de segunda feira > validacao do modal cai aqui
 
         }
 

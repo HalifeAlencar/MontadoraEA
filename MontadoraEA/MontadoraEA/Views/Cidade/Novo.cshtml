@@ -1,10 +1,45 @@
 ﻿@model MontadoraEA.Models.Cidade
 @{
+    Layout = null;
     ViewBag.Title = "Novo";
 }
-<br />
+<div class="modal-dialog">
+    <div class="modal-content">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)            
+            <div class="modal-header">
+                <h4 class="modal-title">Cadastrar</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">                
+                <fieldset>                    
+                    <div>
+                        @Html.LabelFor(Model => Model.Estado)
+                    </div>
+                    <div>
+                        @Html.EnumDropDownListFor(Model => Model.Estado, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(Model => Model.Estado)
+                    </div>
 
-<div class="col-md-8">
+                    <div>
+                        @Html.LabelFor(Model => Model.Nome)
+                    </div>
+                    <div>
+                        @Html.EditorFor(Model => Model.Nome, new { htmlAttributes = new { @style = "text-transform:uppercase", @class = "form-control" } })
+                        @Html.ValidationMessageFor(Model => Model.Nome)
+                    </div>
+                </fieldset>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-outline-primary">Salvar</button>
+            </div>
+        }
+    </div>
+</div>
+
+@*<div class="col-md-8">
     @using (Html.BeginForm())
     {
         @Html.ValidationSummary(true)
@@ -34,4 +69,4 @@
             </div>
         </fieldset>
     }
-</div>
+</div>*@

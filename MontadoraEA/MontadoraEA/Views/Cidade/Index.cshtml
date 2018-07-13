@@ -4,8 +4,8 @@
 <div class="modal fade" id="divmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 <br />
 <div class="form-row form-inline">
-    @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-outline-secondary" })
-    @Html.ActionLink("Cadastrar Cidade", "Novo", null, new { @class = "btn btn-outline-primary" })
+    @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-outline-secondary" })    
+    <button class="btn btn-outline-primary cadastrar"> Cadastrar </button>
 </div>
 
 <div id="divcidades">
@@ -14,10 +14,19 @@
 
 @section scripts{
     <script>
+
+        $(function () {
+            $(".cadastrar").click(function () {                
+                $("#divmodal").load("Cidade/Novo", function () {
+                    $("#divmodal").modal();
+                })
+            });
+        })
+
         $(function () {
             $(".visualizar").click(function () {
                 var id = $(this).attr("data-id");
-                $("#divmodal").load("Visualizar?id=" + id, function () {
+                $("#divmodal").load("Cidade/Visualizar?id=" + id, function () {
                     $("#divmodal").modal();
                 })
             });
@@ -26,7 +35,7 @@
         $(function () {
             $(".editar").click(function () {
                 var id = $(this).attr("data-id");
-                $("#divmodal").load("Editar?id=" + id, function () {
+                $("#divmodal").load("Cidade/Editar?id=" + id, function () {
                     $("#divmodal").modal();
                 })
             });
@@ -35,7 +44,7 @@
         $(function () {
             $(".excluir").click(function () {
                 var id = $(this).attr("data-id");
-                $("#divmodal").load("Excluir?id=" + id, function () {
+                $("#divmodal").load("Cidade/Excluir?id=" + id, function () {
                     $("#divmodal").modal();
                 })
             });
