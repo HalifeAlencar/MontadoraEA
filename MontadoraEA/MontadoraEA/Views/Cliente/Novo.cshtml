@@ -16,7 +16,7 @@
         </div>
         <div>
             @Html.EditorFor(Model => Model.Nome, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(Model => Model.Nome)
+            @Html.ValidationMessageFor(Model => Model.Nome, "", new { @class = "text-danger" })
         </div>
         <div>
             @Html.LabelFor(Model => Model.ESexo)
@@ -29,7 +29,7 @@
         </div>
         <div>
             @Html.EditorFor(Model => Model.Cpf, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(Model => Model.Cpf)
+            @Html.ValidationMessageFor(Model => Model.Cpf, "", new { @class = "text-danger" })
         </div>
 
         <div>
@@ -37,7 +37,7 @@
         </div>
         <div>
             @Html.EditorFor(Model => Model.DataNascimento, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(Model => Model.DataNascimento)
+            @Html.ValidationMessageFor(Model => Model.DataNascimento, "", new { @class = "text-danger" })
         </div>
 
         <div>
@@ -45,7 +45,7 @@
         </div>
         <div>
             @Html.EditorFor(Model => Model.Endereco, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(Model => Model.Endereco)
+            @Html.ValidationMessageFor(Model => Model.Endereco, "", new { @class = "text-danger" })
         </div>
 
         <div>
@@ -53,7 +53,7 @@
         </div>
         <div>
             @Html.EditorFor(Model => Model.Numero, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(Model => Model.Numero)
+            @Html.ValidationMessageFor(Model => Model.Numero, "", new { @class = "text-danger" })
         </div>
 
         <div>
@@ -62,7 +62,7 @@
         <div>
             @Html.EnumDropDownListFor(Model => Model.Cidade.Estado, new { @class = "form-control" })
 
-            @Html.ValidationMessageFor(Model => Model.Cidade.Estado)
+            @Html.ValidationMessageFor(Model => Model.Cidade.Estado, "", new { @class = "text-danger" })
         </div>
 
         <div>
@@ -71,7 +71,7 @@
         <div>
             <select name="Cidade.CidadeId" id="selectCidade" class="form-control"></select>
             <input type="hidden" name="Cidade.Nome" id="nomeCidade" />
-            @Html.ValidationMessageFor(Model => Model.Cidade)
+            @Html.ValidationMessageFor(Model => Model.Cidade, "", new { @class = "text-danger" })
         </div>
 
         <div>
@@ -79,7 +79,7 @@
         </div>
         <div>
             @Html.EditorFor(Model => Model.OrgaoExpedidor, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(Model => Model.OrgaoExpedidor)
+            @Html.ValidationMessageFor(Model => Model.OrgaoExpedidor, "", new { @class = "text-danger" })
         </div>
 
         <div>
@@ -87,7 +87,7 @@
         </div>
         <div>
             @Html.EditorFor(Model => Model.Rg, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(Model => Model.Rg)
+            @Html.ValidationMessageFor(Model => Model.Rg, "", new { @class = "text-danger" })
         </div>
         <br />
         <div>

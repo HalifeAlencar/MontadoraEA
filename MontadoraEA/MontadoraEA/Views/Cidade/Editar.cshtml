@@ -2,47 +2,44 @@
 <br />
 @{
     Layout = null;
-    ViewBag.title = "Editar";
+    ViewBag.title = "Editar";   
 }
-
-<div class="modal-dialog">
-    <div class="modal-content">
-        @using (Html.BeginForm())
-        {
-            @Html.ValidationSummary(true)
-            @Html.HiddenFor(model => model.CidadeId)
+@using (Ajax.BeginForm("Editar", "Cidade", new AjaxOptions() { HttpMethod = "POST", UpdateTargetId = "divmodal" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.CidadeId)
+    <div class="modal-dialog">
+        <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Editar</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
             </div>
             <div class="modal-body">
-
-                <fieldset>                    
+                <fieldset>
                     <div>
-                        @Html.LabelFor(Model => Model.Estado)
+                        <b>@Html.LabelFor(Model => Model.Estado)</b>
                     </div>
                     <div>
                         @Html.EnumDropDownListFor(Model => Model.Estado, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(Model => Model.Estado)
+                        @Html.ValidationMessageFor(Model => Model.Estado, "", new { @class = "text-danger" })
                     </div>
                     <br />
                     <div>
-                        @Html.LabelFor(Model => Model.Nome)
+                        <b>@Html.LabelFor(Model => Model.Nome)</b>
                     </div>
                     <div>
                         @Html.EditorFor(Model => Model.Nome, new { htmlAttributes = new { @style = "text-transform:uppercase", @class = "form-control" } })
-                        @Html.ValidationMessageFor(Model => Model.Nome)
+                        @Html.ValidationMessageFor(Model => Model.Nome, "", new { @class = "text-danger" })
                     </div>
                 </fieldset>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-outline-primary" data-id="@Model.CidadeId"> Salvar Alterações </button>
+                <button type="submit" class="btn btn-outline-primary" @*data-id="@Model.CidadeId"*@> Salvar Alterações </button>
             </div>
-        }
+        </div>
     </div>
-</div>
-
+}
 @*@using (Html.BeginForm())
     {
         @Html.ValidationSummary(true)

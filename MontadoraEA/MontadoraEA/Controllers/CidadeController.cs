@@ -28,11 +28,11 @@ namespace MontadoraEA.Controllers
             string query = form["txtBusca"];
 
             if (!string.IsNullOrWhiteSpace(query))
-            {                
+            {
                 return View(cidadeRepository.Pesquisar(query));
             }
             else
-            {                
+            {
                 return View(cidadeRepository.ListaCidade());
             }
         }
@@ -49,15 +49,14 @@ namespace MontadoraEA.Controllers
             {
                 cidade.Nome = cidade.Nome.ToUpper();
                 cidadeRepository.Adicionar(cidade);
-                ViewBag.theresult = true;
-                return RedirectToAction("Index");
+                
+                return Redirect("~/Cidade");
             }
-            else
+            if(ModelState.IsValid == false)
             {
-
+                return View();
             }
-            return View(); //meu problema de segunda feira > validacao do modal cai aqui
-
+            return Redirect("~/Cidade");
         }
 
         public ActionResult Visualizar(int? id)

@@ -1,14 +1,25 @@
 ﻿@{
     ViewBag.Title = "Cidade";
 }
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+@*<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>*@
+@*<script src="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"></script>*@
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
 <div class="modal fade" id="divmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 <br />
 <div class="form-row form-inline">
-    @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-outline-secondary" })    
+    @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-outline-secondary" })
     <button class="btn btn-outline-primary cadastrar"> Cadastrar </button>
 </div>
 
-<div id="divcidades">
+<div id="divCidades">
     @Html.Partial("_ListaCidades")
 </div>
 
@@ -16,7 +27,7 @@
     <script>
 
         $(function () {
-            $(".cadastrar").click(function () {                
+            $(".cadastrar").click(function () {
                 $("#divmodal").load("Cidade/Novo", function () {
                     $("#divmodal").modal();
                 })
@@ -48,7 +59,14 @@
                     $("#divmodal").modal();
                 })
             });
-        })
+        })    
+        //$(function () {
+        //    $('#form0').on('submit', function () {
+        //        $('#divmodal').modal('hide');
+        //    });
+        //})
+       
+
 
         $(document).ready(function () {
             $('#tabelacidade').dataTable({

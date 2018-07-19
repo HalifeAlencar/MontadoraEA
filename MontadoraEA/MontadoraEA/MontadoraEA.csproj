@@ -515,6 +515,7 @@
     <Content Include="Views\Cidade\_ListaCidades.cshtml" />
     <Content Include="Views\Cliente\_ListaClientes.cshtml" />
     <Content Include="Views\Cliente\Visualizar.cshtml" />
+    <Content Include="Views\Cidade\Confirmacao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
