@@ -2,9 +2,15 @@
 <br />
 @{
     Layout = null;
-    ViewBag.title = "Editar";   
+    ViewBag.title = "Editar";
 }
-@using (Ajax.BeginForm("Editar", "Cidade", new AjaxOptions() { HttpMethod = "POST", UpdateTargetId = "divmodal" }))
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+@*@using (Ajax.BeginForm("Editar", "Cidade", new AjaxOptions() { HttpMethod = "POST", UpdateTargetId = "divmodal" }))*@
+@using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
     @Html.HiddenFor(model => model.CidadeId)

@@ -49,14 +49,13 @@ namespace MontadoraEA.Controllers
             {
                 cidade.Nome = cidade.Nome.ToUpper();
                 cidadeRepository.Adicionar(cidade);
-                
-                return Redirect("~/Cidade");
+                return RedirectToAction("Index");
+                //return Json(new { RedirectUrl = Url.Action("Index") });
             }
-            if(ModelState.IsValid == false)
+            else
             {
                 return View();
             }
-            return Redirect("~/Cidade");
         }
 
         public ActionResult Visualizar(int? id)
@@ -109,10 +108,13 @@ namespace MontadoraEA.Controllers
                 cidade.Nome = cidade.Nome.ToUpper();
                 cidadeRepository.Editar(cidade);
 
-                return RedirectToAction("Visualizar", new { id = cidade.CidadeId });
+                return RedirectToAction("Index");
             }
-
-            return View();
+            else
+            {
+                return View();
+            }
+            
         }
 
         public ActionResult Excluir(int? id)

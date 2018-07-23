@@ -4,7 +4,12 @@
     ViewBag.Title = "Novo";
 }
 
-@using (Ajax.BeginForm("Novo", "Cidade", new AjaxOptions() { HttpMethod = "POST", UpdateTargetId = "divmodal" }))
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+@*@using (Ajax.BeginForm("Novo", "Cidade", new AjaxOptions() { HttpMethod = "POST", UpdateTargetId = "divmodal", OnSuccess = "OnSuccess", OnFailure = "OnFailure" }))*@
+@using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
     <div class="modal-dialog">
@@ -19,7 +24,7 @@
                         <b>@Html.LabelFor(Model => Model.Estado)</b>
                     </div>
                     <div>
-                        @Html.EnumDropDownListFor(Model => Model.Estado, htmlAttributes: new { @class = "form-control", @selected=string.Empty})
+                        @Html.EnumDropDownListFor(Model => Model.Estado, htmlAttributes: new { @class = "form-control", @selected = string.Empty, required = "required" })
                         @Html.ValidationMessageFor(Model => Model.Estado, "", new { @class = "text-danger" })
                     </div>
 
@@ -27,7 +32,7 @@
                         <b>@Html.LabelFor(Model => Model.Nome)</b>
                     </div>
                     <div>
-                        @Html.EditorFor(Model => Model.Nome, new { htmlAttributes = new { @style = "text-transform:uppercase", @class = "form-control" } })
+                        @Html.EditorFor(Model => Model.Nome, new { htmlAttributes = new { @style = "text-transform:uppercase", @class = "form-control", required = "required" } })
                         @Html.ValidationMessageFor(Model => Model.Nome, "", new { @class = "text-danger" })
                     </div>
                 </fieldset>
