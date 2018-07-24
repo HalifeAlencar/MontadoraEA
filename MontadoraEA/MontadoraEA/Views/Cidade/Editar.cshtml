@@ -10,7 +10,7 @@
 <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 
 @*@using (Ajax.BeginForm("Editar", "Cidade", new AjaxOptions() { HttpMethod = "POST", UpdateTargetId = "divmodal" }))*@
-@using (Html.BeginForm())
+@using (Html.BeginForm(new { @id = "formEdit" }))
 {
     @Html.ValidationSummary(true)
     @Html.HiddenFor(model => model.CidadeId)

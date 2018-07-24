@@ -12,6 +12,15 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 
+<br />
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissable">
+        <strong>@TempData["SuccessMessage"]</strong>
+    </div>
+}
+
 <div class="modal fade" id="divmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 </div>
 <br />
@@ -24,8 +33,14 @@
     @Html.Partial("_ListaCidades")
 </div>
 
+
+
 @section scripts{
     <script>
+
+        $(document).ready(function () {
+            $('.alert').css("display", "none")
+        })
 
         $(function () {
             $(".cadastrar").click(function () {
@@ -88,6 +103,16 @@
                     }
                 }
             });
+        });
+
+        //$('#form').submit(function (e) {
+        //    $('.alert-success').alert();
+
+        //});
+
+
+        $('#divmodal').submit(function () {
+            $(".alert").alert();
         });
 
     </script>

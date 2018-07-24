@@ -9,7 +9,7 @@
 <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 
 @*@using (Ajax.BeginForm("Novo", "Cidade", new AjaxOptions() { HttpMethod = "POST", UpdateTargetId = "divmodal", OnSuccess = "OnSuccess", OnFailure = "OnFailure" }))*@
-@using (Html.BeginForm())
+@using (Html.BeginForm("Novo", "Cidade", FormMethod.Post, new { @id = "formNovo" }))
 {
     @Html.ValidationSummary(true)
     <div class="modal-dialog">
@@ -44,7 +44,6 @@
         </div>
     </div>
 }
-
 @*<div class="col-md-8">
         @using (Html.BeginForm())
         {

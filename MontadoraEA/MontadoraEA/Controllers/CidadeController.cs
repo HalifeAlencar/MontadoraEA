@@ -38,7 +38,7 @@ namespace MontadoraEA.Controllers
         }
 
         public ActionResult Novo()
-        {
+        {            
             return View();
         }
 
@@ -49,6 +49,7 @@ namespace MontadoraEA.Controllers
             {
                 cidade.Nome = cidade.Nome.ToUpper();
                 cidadeRepository.Adicionar(cidade);
+                TempData["SuccessMessage"] = "Your Success Message";
                 return RedirectToAction("Index");
                 //return Json(new { RedirectUrl = Url.Action("Index") });
             }
@@ -114,7 +115,7 @@ namespace MontadoraEA.Controllers
             {
                 return View();
             }
-            
+
         }
 
         public ActionResult Excluir(int? id)
