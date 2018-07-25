@@ -26,5 +26,19 @@ namespace MontadoraEA.Repository
         {
             return db.Cliente.Find(id);
         }
+
+        public void Editar(Cliente cliente)
+        {
+            db.Entry(cliente).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
+        public void Excluir(Cliente cliente)
+        {
+            db.Cliente.Remove(cliente);
+            db.SaveChanges();
+        }
+
+
     }
 }

@@ -1,0 +1,59 @@
+﻿@model  IEnumerable<MontadoraEA.Models.Cliente>
+
+<table id="tabelaId" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Cpf)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Cidade.Estado)
+            </th>
+            <th>
+                <header class="text-center">Ações</header>
+            </th>
+        </tr>
+    <thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataNascimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endereco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cidade.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cidade.Estado)
+                </td>
+                <td>
+                    <button class="btn btn-outline-info visualizar" data-id="@item.Id"> Visualizar </button>
+                    <button class="btn btn-outline-warning editar" data-id="@item.Id"> Editar </button>
+                    <button class="btn btn-outline-danger excluir" data-id="@item.Id"> Excluir </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

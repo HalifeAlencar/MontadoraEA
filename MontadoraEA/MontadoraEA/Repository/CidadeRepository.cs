@@ -46,9 +46,9 @@ namespace MontadoraEA.Repository
             db.SaveChanges();
         }
         
-        public IEnumerable<Cidade> Pesquisar(string texto)
-        {
-            return db.Cidade.Where(x => x.Nome.Contains(texto)).OrderBy(x => x.Nome);
-        }
+        //public IEnumerable<Cidade> Pesquisar(string texto)
+        //{
+        //    return db.Cidade.Where(x => x.Nome.Contains(texto)).OrderBy(x => x.Nome);
+        //}
     }
 }

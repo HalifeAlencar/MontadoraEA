@@ -9,11 +9,11 @@ namespace MontadoraEA.Models
 {
     public class Cliente: Pessoa
     {
-        public Cliente()
-        {
-            Cidade = new Cidade();
+        //public Cliente()
+        //{
+        //    Cidade = new Cidade();
 
-        }
+        //}
 
         [DisplayName("Data de Nascimento")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
@@ -41,6 +41,7 @@ namespace MontadoraEA.Models
         
         [Required]
         [DisplayName("Sexo")]
+        [Range(1, int.MaxValue, ErrorMessage = "O campo Sexo é obrigatório.")]
         public ESexo ESexo { get; set; }
     }
 }

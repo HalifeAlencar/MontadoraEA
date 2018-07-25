@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -19,26 +20,27 @@ namespace MontadoraEA.Controllers
 
         public ActionResult Index()
         {
+            TempData["ScriptIndexEssentials"] = "";
             return View(cidadeRepository.ListaCidade().OrderBy(p => p.Nome));
         }
 
-        [HttpPost]
-        public ActionResult Index(FormCollection form)
-        {
-            string query = form["txtBusca"];
+        //[HttpPost] método de pesquisa caso queira implementar algo do tipo
+        //public ActionResult Index(FormCollection form)
+        //{
+        //    string query = form["txtBusca"];
 
-            if (!string.IsNullOrWhiteSpace(query))
-            {
-                return View(cidadeRepository.Pesquisar(query));
-            }
-            else
-            {
-                return View(cidadeRepository.ListaCidade());
-            }
-        }
+        //    if (!string.IsNullOrWhiteSpace(query))
+        //    {
+        //        return View(cidadeRepository.Pesquisar(query));
+        //    }
+        //    else
+        //    {
+        //        return View(cidadeRepository.ListaCidade());
+        //    }
+        //}
 
         public ActionResult Novo()
-        {            
+        {
             return View();
         }
 
@@ -49,7 +51,7 @@ namespace MontadoraEA.Controllers
             {
                 cidade.Nome = cidade.Nome.ToUpper();
                 cidadeRepository.Adicionar(cidade);
-                TempData["SuccessMessage"] = "Your Success Message";
+                TempData["SuccessMessage"] = "Cadastro realizado com sucesso.";
                 return RedirectToAction("Index");
                 //return Json(new { RedirectUrl = Url.Action("Index") });
             }
@@ -75,7 +77,7 @@ namespace MontadoraEA.Controllers
             return View(cidade);
         }
 
-        public PartialViewResult _ListaCidades(Cidade cidade)
+        public PartialViewResult _TabelaCidades(Cidade cidade)
         {
             return PartialView(cidadeRepository.ListaCidade().OrderBy(p => p.Nome));
         }
@@ -108,7 +110,7 @@ namespace MontadoraEA.Controllers
             {
                 cidade.Nome = cidade.Nome.ToUpper();
                 cidadeRepository.Editar(cidade);
-
+                TempData["SuccessMessage"] = "Registro editado com sucesso.";
                 return RedirectToAction("Index");
             }
             else
@@ -139,6 +141,7 @@ namespace MontadoraEA.Controllers
         {
             cidade = cidadeRepository.BuscaCidade(cidade.CidadeId);
             cidadeRepository.Excluir(cidade);
+            TempData["SuccessMessage"] = "Registro excluido com sucesso.";
             return RedirectToAction("index");
         }
     }

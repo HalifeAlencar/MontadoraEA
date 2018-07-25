@@ -512,10 +512,11 @@
     <Content Include="Views\Cidade\Editar.cshtml" />
     <Content Include="Views\Cidade\Excluir.cshtml" />
     <Content Include="Views\Cidade\ListarCidadePorEstado.cshtml" />
-    <Content Include="Views\Cidade\_ListaCidades.cshtml" />
-    <Content Include="Views\Cliente\_ListaClientes.cshtml" />
+    <Content Include="Views\Cidade\_TabelaCidades.cshtml" />
+    <Content Include="Views\Cliente\_TabelaClientes.cshtml" />
     <Content Include="Views\Cliente\Visualizar.cshtml" />
     <Content Include="Views\Cidade\Confirmacao.cshtml" />
+    <Content Include="Views\Shared\_ScriptsIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

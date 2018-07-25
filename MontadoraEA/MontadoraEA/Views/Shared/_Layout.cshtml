@@ -7,12 +7,10 @@
     <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>    
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
 </head>
 <body>
-
-
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="~/Home/Index">MontadoraEA</a>
@@ -35,6 +33,15 @@
 
 
     <div class="container body-content">
+        <br />
+        @if (TempData["SuccessMessage"] != null)// para todas as views que necessitarem de alert sucess
+        {
+            <div class="alert alert-success alert-dismissable">
+                <strong>@TempData["SuccessMessage"]</strong>
+            </div>
+        }
+
+
         @RenderBody()
         <hr />
         <footer>
@@ -43,6 +50,11 @@
     </div>
     @*@Scripts.Render("~/bundles/jquery")*@
     @Scripts.Render("~/bundles/bootstrap")
+
+    @if (TempData["ScriptIndexEssentials"] != null){
+        @Html.Partial("_ScriptsIndex")
+    }
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
