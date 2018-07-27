@@ -14,9 +14,9 @@ namespace MontadoraEA.Models
         //    Cidade = new Cidade();
 
         //}
-
+        [DataType(DataType.Date)]
         [DisplayName("Data de Nascimento")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DataNascimento { get; set; }
 
         [StringLength(50, ErrorMessage = "O tamanho máximo são 50 caracteres.")]

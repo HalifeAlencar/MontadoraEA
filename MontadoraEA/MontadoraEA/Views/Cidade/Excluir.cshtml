@@ -1,8 +1,10 @@
 ﻿@model MontadoraEA.Models.Cidade
+
 @{
     Layout = null;
-    ViewBag.title = "Visualizar";
+    ViewBag.title = "Excluir";
 }
+
 <div class="modal-dialog">
     <div class="modal-content">
         @using (Html.BeginForm())
@@ -16,7 +18,7 @@
             <div class="modal-body">
                 <br />
                 <fildset>
-                    <p><b>Você realmente deseja excluir a cidade @Html.DisplayFor(model => model.Nome)?</b></p>
+                    <p><b>Você realmente deseja excluir @Html.DisplayFor(model => model.Nome)?</b></p>
                     <dt>
                         @Html.DisplayNameFor(model => model.Estado)
                     </dt>

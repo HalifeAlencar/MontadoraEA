@@ -1,19 +1,20 @@
 ﻿@model MontadoraEA.Models.Cliente
-
+<br />
 @{
     Layout = null;
-    ViewBag.Title = "Novo";
+    ViewBag.title = "Editar";
 }
 
 @Scripts.Render("~/bundles/jqueryval")
 
-@using (Html.BeginForm("Novo", "Cliente", FormMethod.Post, new { @id = "formNovo" }))
+@using (Html.BeginForm(new { @id = "formEditar" }))
 {
     @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Cadastrar</h4>
+                <h4 class="modal-title">Editar</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
             </div>
             <div class="modal-body">
@@ -101,123 +102,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-outline-primary">Salvar</button>
+                <button type="submit" class="btn btn-outline-primary"> Salvar Alterações </button>
             </div>
         </div>
     </div>
 }
-
-<script>
-        $('#Cidade_Estado').on('change', function () {
-            BuscarCidade();
-        });
-        function BuscarCidade() {
-            $('#selectCidade').load('@Url.Action("ListarCidadePorEstado", "Cidade")', { estado: $('#Cidade_Estado').val()});
-        }
-
-        $("#selectCidade").on('change', function () {
-            var conteudo = $("#selectCidade option:selected").text();
-            $("#nomeCidade").val(conteudo)
-        });
-
-</script>
-
-@*@{
-        ViewBag.Title = "Novo";
-    }
-
-    <h2>Novo Cliente</h2>
-
-    @using (Html.BeginForm())
-    {
-        @Html.ValidationSummary(true)
-        <fieldset>
-            <legend>Dados do Cliente</legend>
-            <div>
-                @Html.LabelFor(Model => Model.Nome)
-            </div>
-            <div>
-                @Html.EditorFor(Model => Model.Nome, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(Model => Model.Nome, "", new { @class = "text-danger" })
-            </div>
-            <div>
-                @Html.LabelFor(Model => Model.ESexo)
-            </div>
-            <div>
-                @Html.EnumDropDownListFor(Model => Model.ESexo, new { @class = "form-control" })
-                @Html.ValidationMessageFor(Model => Model.ESexo, "", new { @class = "text-danger" })
-            </div>
-            <div>
-                @Html.LabelFor(Model => Model.Cpf)
-            </div>
-            <div>
-                @Html.EditorFor(Model => Model.Cpf, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(Model => Model.Cpf, "", new { @class = "text-danger" })
-            </div>
-
-            <div>
-                @Html.LabelFor(Model => Model.DataNascimento)
-            </div>
-            <div>
-                @Html.EditorFor(Model => Model.DataNascimento, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(Model => Model.DataNascimento, "", new { @class = "text-danger" })
-            </div>
-
-            <div>
-                @Html.LabelFor(Model => Model.Endereco)
-            </div>
-            <div>
-                @Html.EditorFor(Model => Model.Endereco, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(Model => Model.Endereco, "", new { @class = "text-danger" })
-            </div>
-
-            <div>
-                @Html.LabelFor(Model => Model.Numero)
-            </div>
-            <div>
-                @Html.EditorFor(Model => Model.Numero, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(Model => Model.Numero, "", new { @class = "text-danger" })
-            </div>
-
-            <div>
-                @Html.LabelFor(Model => Model.Cidade.Estado)
-            </div>
-            <div>
-                @Html.EnumDropDownListFor(Model => Model.Cidade.Estado, new { @class = "form-control" })
-
-                @Html.ValidationMessageFor(Model => Model.Cidade.Estado, "", new { @class = "text-danger" })
-            </div>
-
-            <div>
-                @Html.LabelFor(Model => Model.Cidade.Nome)
-            </div>
-            <div>
-                <select name="Cidade.CidadeId" id="selectCidade" class="form-control"></select>
-                <input type="hidden" name="Cidade.Nome" id="nomeCidade" />
-                @Html.ValidationMessageFor(Model => Model.Cidade, "", new { @class = "text-danger" })
-            </div>
-
-            <div>
-                @Html.LabelFor(Model => Model.OrgaoExpedidor)
-            </div>
-            <div>
-                @Html.EditorFor(Model => Model.OrgaoExpedidor, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(Model => Model.OrgaoExpedidor, "", new { @class = "text-danger" })
-            </div>
-
-            <div>
-                @Html.LabelFor(Model => Model.Rg)
-            </div>
-            <div>
-                @Html.EditorFor(Model => Model.Rg, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(Model => Model.Rg, "", new { @class = "text-danger" })
-            </div>
-            <br />
-            <div>
-                @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-outline-secondary" })
-                <button type="submit" class="btn btn-outline-primary"> Salvar </button>
-            </div>
-        </fieldset>
-    }*@
-
-

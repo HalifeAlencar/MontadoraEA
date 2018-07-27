@@ -2,19 +2,14 @@
     ViewBag.Title = "Cliente";
 }
 
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
-
 <div class="modal fade" id="divModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 </div>
 
 <div class="form-row form-inline">
     @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-outline-secondary" })
-    <button class="btn btn-outline-primary cadastrar"> Cadastrar </button>
+    <button class="btn btn-outline-primary cadastrar"> Cadastrar </button>    
 </div>
-<p></p>
+<br />
 
 <div id="divTabela">
     @Html.Partial("_TabelaClientes")

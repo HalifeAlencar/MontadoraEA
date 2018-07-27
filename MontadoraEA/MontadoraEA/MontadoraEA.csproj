@@ -517,6 +517,14 @@
     <Content Include="Views\Cliente\Visualizar.cshtml" />
     <Content Include="Views\Cidade\Confirmacao.cshtml" />
     <Content Include="Views\Shared\_ScriptsIndex.cshtml" />
+    <Content Include="Views\Shared\_ScriptsHeadIndex.cshtml" />
+    <Content Include="Views\Cliente\Editar.cshtml" />
+    <Content Include="Views\Cliente\Excluir.cshtml" />
+    <Content Include="Views\Fornecedor\Index.cshtml" />
+    <Content Include="Views\Fornecedor\Visualizar.cshtml" />
+    <Content Include="Views\Fornecedor\Editar.cshtml" />
+    <Content Include="Views\Fornecedor\Excluir.cshtml" />
+    <Content Include="Views\Fornecedor\_TabelaFornecedores.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

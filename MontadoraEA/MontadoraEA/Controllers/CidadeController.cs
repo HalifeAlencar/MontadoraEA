@@ -40,7 +40,7 @@ namespace MontadoraEA.Controllers
         //}
 
         public ActionResult Novo()
-        {
+        {            
             return View();
         }
 
@@ -100,6 +100,7 @@ namespace MontadoraEA.Controllers
             {
                 return HttpNotFound();
             }
+            
             return View(cidade);
         }
 

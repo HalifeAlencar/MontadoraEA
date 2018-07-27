@@ -13,7 +13,7 @@ namespace MontadoraEA.Models
         [Required]
         public int Id { get; set; }
 
-        [StringLength(11)]
+        [StringLength(11, MinimumLength = 11, ErrorMessage ="O campo CPF deve conter 11 caracteres")]
         [Required]
         [DisplayName("CPF")]
         public string Cpf { get; set; }

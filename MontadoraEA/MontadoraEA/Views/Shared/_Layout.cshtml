@@ -9,6 +9,10 @@
     @Scripts.Render("~/bundles/modernizr")
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+    @if (TempData["ScriptIndexEssentials"] != null)
+    { 
+        @Html.Partial("_ScriptsHeadIndex")
+    }    
 </head>
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
@@ -20,11 +24,11 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link" href="@Url.Action("Index","Cliente")">Cliente</a>
-                    <a class="nav-item nav-link" href="@Url.Action("Novo","Veiculo")">Veiculo</a>
+                    <a class="nav-item nav-link" href="@Url.Action("Index","Veiculo")">Veiculo</a>
                     <a class="nav-item nav-link" href="@Url.Action("Index","Cidade")">Cidade</a>
-                    <a class="nav-item nav-link" href="@Url.Action("Novo","Peca")">Peca</a>
-                    <a class="nav-item nav-link" href="@Url.Action("Novo","Fornecedor")">Fornecedor</a>
-                    <a class="nav-item nav-link" href="@Url.Action("Novo","Montador")">Montador</a>
+                    <a class="nav-item nav-link" href="@Url.Action("Index","Peca")">Peca</a>
+                    <a class="nav-item nav-link" href="@Url.Action("Index","Fornecedor")">Fornecedor</a>
+                    <a class="nav-item nav-link" href="@Url.Action("Index","Montador")">Montador</a>
                     <a class="nav-item nav-link disabled align-content-lg-end" href="@Url.Action("Novo","Usuario")">Login</a>
                 </div>
             </div>
@@ -36,9 +40,10 @@
         <br />
         @if (TempData["SuccessMessage"] != null)// para todas as views que necessitarem de alert sucess
         {
-            <div class="alert alert-success alert-dismissable">
-                <strong>@TempData["SuccessMessage"]</strong>
-            </div>
+        <div class="alert alert-success alert-dismissible">
+            <strong>@TempData["SuccessMessage"]</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>                
+        </div>
         }
 
 
@@ -51,7 +56,7 @@
     @*@Scripts.Render("~/bundles/jquery")*@
     @Scripts.Render("~/bundles/bootstrap")
 
-    @if (TempData["ScriptIndexEssentials"] != null){
+    @if (TempData["ScriptIndexEssentials"] != null){ //carregar scripts datatable,modal,alertclose
         @Html.Partial("_ScriptsIndex")
     }
 

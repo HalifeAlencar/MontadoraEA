@@ -1,16 +1,14 @@
 ﻿@model MontadoraEA.Models.Cidade
-<br />
+
 @{
     Layout = null;
     ViewBag.title = "Editar";
 }
 
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+@Scripts.Render("~/bundles/jqueryval")
 
 @*@using (Ajax.BeginForm("Editar", "Cidade", new AjaxOptions() { HttpMethod = "POST", UpdateTargetId = "divmodal" }))*@
-@using (Html.BeginForm(new { @id = "formEdit" }))
+@using (Html.BeginForm(new { @id = "formEditar" }))
 {
     @Html.ValidationSummary(true)
     @Html.HiddenFor(model => model.CidadeId)

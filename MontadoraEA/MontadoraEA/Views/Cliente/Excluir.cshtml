@@ -1,0 +1,101 @@
+﻿@model MontadoraEA.Models.Cliente
+@{
+    Layout = null;
+    ViewBag.title = "Excluir";
+}
+<div class="modal-dialog">
+    <div class="modal-content">
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(Model => Model.Id)
+
+            <div class="modal-header">
+                <h4 class="modal-title">Excluir</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <br />
+                <fildset>
+                    <p><b>Você realmente deseja excluir @Html.DisplayFor(model => model.Nome)?</b></p>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Nome)
+                    </dd>
+                    <br />
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ESexo)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ESexo)
+                    </dd>
+                    <br />
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Cpf)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Cpf)
+                    </dd>
+                    <br />
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DataNascimento)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.DataNascimento)
+                    </dd>
+                    <br />
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Endereco)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Endereco)
+                    </dd>
+                    <br />
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Numero)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Numero)
+                    </dd>
+                    <br />
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Cidade)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Cidade.Nome)
+                    </dd>
+                    <br />
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Cidade.Estado)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Cidade.Estado)
+                    </dd>
+
+                    <br />
+                    <dt>
+                        @Html.DisplayNameFor(model => model.OrgaoExpedidor)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.OrgaoExpedidor)
+                    </dd>
+                    <br />
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Rg)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Rg)
+                    </dd>
+                </fildset>
+                <br />
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-outline-danger excluir-definitivamente"> Excluir Definitivamente</button>
+            </div>
+        }
+    </div>
+</div>

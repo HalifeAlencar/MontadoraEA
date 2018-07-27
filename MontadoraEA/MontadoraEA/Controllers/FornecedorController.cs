@@ -3,6 +3,7 @@ using MontadoraEA.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -14,23 +15,111 @@ namespace MontadoraEA.Controllers
         // GET: Fornecedor
         public ActionResult Index()
         {
-            return View();
+            TempData["ScriptIndexEssentials"] = "";
+            return View(fornecedorRepository.ListaFornecedor().OrderBy(p => p.Nome));
         }
 
         public ActionResult Novo()
         {
             return View();
         }
-        
+
         [HttpPost]
         public ActionResult Novo(Fornecedor fornecedor)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid)//valida no lado do servidor
             {
+                fornecedor.Nome = fornecedor.Nome.ToUpper();
                 fornecedorRepository.Adicionar(fornecedor);
+                TempData["SuccessMessage"] = "Cadastro realizado com sucesso.";
+                return RedirectToAction("Index");
+                //return Json(new { RedirectUrl = Url.Action("Index") });
             }
-            
+            else
+            {
+                return View();
+            }
+        }
+
+        public ActionResult Visualizar(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Fornecedor fornecedor = fornecedorRepository.BuscaFornecedor(id);
+
+            if (fornecedor == null)
+            {
+                return HttpNotFound();
+            }
             return View(fornecedor);
         }
+
+        public PartialViewResult _TabelaFornecedors(Fornecedor fornecedor)
+        {
+            return PartialView(fornecedorRepository.ListaFornecedor().OrderBy(p => p.Nome));
+        }        
+
+        public ActionResult Editar(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Fornecedor fornecedor = fornecedorRepository.BuscaFornecedor(id);
+
+            if (fornecedor == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(fornecedor);
+        }
+
+        [HttpPost]
+        public ActionResult Editar(Fornecedor fornecedor)
+        {
+            if (ModelState.IsValid)
+            {
+                fornecedor.Nome = fornecedor.Nome.ToUpper();
+                fornecedorRepository.Editar(fornecedor);
+                TempData["SuccessMessage"] = "Registro editado com sucesso.";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+
+        }
+
+        public ActionResult Excluir(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Fornecedor fornecedor = fornecedorRepository.BuscaFornecedor(id);
+
+            if (fornecedor == null)
+            {
+                return HttpNotFound();
+            }
+            return View(fornecedor);
+        }
+
+        [HttpPost]
+        public ActionResult Excluir(Fornecedor fornecedor)
+        {
+            fornecedor = fornecedorRepository.BuscaFornecedor(fornecedor.Id);
+            fornecedorRepository.Excluir(fornecedor);
+            TempData["SuccessMessage"] = "Registro excluido com sucesso.";
+            return RedirectToAction("index");
+        }
+
     }
 }

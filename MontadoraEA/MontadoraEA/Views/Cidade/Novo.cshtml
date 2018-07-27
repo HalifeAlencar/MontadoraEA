@@ -4,9 +4,7 @@
     ViewBag.Title = "Novo";
 }
 
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+@Scripts.Render("~/bundles/jqueryval")
 
 @*@using (Ajax.BeginForm("Novo", "Cidade", new AjaxOptions() { HttpMethod = "POST", UpdateTargetId = "divmodal", OnSuccess = "OnSuccess", OnFailure = "OnFailure" }))*@
 @using (Html.BeginForm("Novo", "Cidade", FormMethod.Post, new { @id = "formNovo" }))
