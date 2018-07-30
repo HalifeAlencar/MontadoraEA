@@ -2,18 +2,19 @@
 
 @{
     Layout = null;
-    ViewBag.Title = "Novo";
+    ViewBag.title = "Editar";
 }
 
 @Scripts.Render("~/bundles/jqueryval")
 
-@using (Html.BeginForm("Novo", "Veiculo", FormMethod.Post, new { @id = "formNovo" }))
+@using (Html.BeginForm(new { @id = "formEditar" }))
 {
     @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.VeiculoId)
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Cadastrar</h4>
+                <h4 class="modal-title">Editar</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
             </div>
             <div class="modal-body">
@@ -45,7 +46,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-outline-primary">Salvar</button>
+                <button type="submit" class="btn btn-outline-primary"> Salvar Alterações </button>
             </div>
         </div>
     </div>

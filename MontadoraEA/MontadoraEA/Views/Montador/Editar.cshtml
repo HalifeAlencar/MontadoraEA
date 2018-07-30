@@ -1,0 +1,56 @@
+﻿@model MontadoraEA.Models.Montador
+
+@{
+    Layout = null;
+    ViewBag.title = "Editar";
+}
+
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/validations_pt-br")
+
+@using (Html.BeginForm(new { @id = "formEditar" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Editar</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <fieldset>
+                    <div>
+                        <b>@Html.LabelFor(Model => Model.Nome)</b>
+                    </div>
+                    <div>
+                        @Html.EditorFor(Model => Model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(Model => Model.Nome, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <div>
+                        <b>@Html.LabelFor(Model => Model.Cpf)</b>
+                    </div>
+                    <div>
+                        @Html.EditorFor(Model => Model.Cpf, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(Model => Model.Cpf, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <div>
+                        <b>@Html.LabelFor(Model => Model.Salario)</b>
+                    </div>
+                    <div>
+                        @Html.EditorFor(Model => Model.Salario, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(Model => Model.Salario, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                </fieldset>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-outline-primary"> Salvar Alterações </button>
+            </div>
+        </div>
+    </div>
+}
+

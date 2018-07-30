@@ -165,6 +165,7 @@
     <Compile Include="Models\Cidade.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Contexto.cs" />
+    <Compile Include="Models\DecimalModelBinder.cs" />
     <Compile Include="Models\ESexo.cs" />
     <Compile Include="Models\Estado.cs" />
     <Compile Include="Models\Fornecedor.cs" />
@@ -524,7 +525,21 @@
     <Content Include="Views\Fornecedor\Visualizar.cshtml" />
     <Content Include="Views\Fornecedor\Editar.cshtml" />
     <Content Include="Views\Fornecedor\Excluir.cshtml" />
-    <Content Include="Views\Fornecedor\_TabelaFornecedores.cshtml" />
+    <Content Include="Views\Fornecedor\_TabelaPartial.cshtml" />
+    <Content Include="Views\Veiculo\Index.cshtml" />
+    <Content Include="Views\Veiculo\Visualizar.cshtml" />
+    <Content Include="Views\Veiculo\_TabelaVeiculos.cshtml" />
+    <Content Include="Views\Veiculo\Editar.cshtml" />
+    <Content Include="Views\Veiculo\Excluir.cshtml" />
+    <Content Include="Views\Peca\Index.cshtml" />
+    <Content Include="Views\Peca\_TabelaPartial.cshtml" />
+    <Content Include="Views\Peca\Visualizar.cshtml" />
+    <Content Include="Views\Peca\Editar.cshtml" />
+    <Content Include="Views\Peca\Excluir.cshtml" />
+    <Content Include="Views\Montador\Visualizar.cshtml" />
+    <Content Include="Views\Montador\_TabelaPartial.cshtml" />
+    <Content Include="Views\Montador\Editar.cshtml" />
+    <Content Include="Views\Montador\Excluir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

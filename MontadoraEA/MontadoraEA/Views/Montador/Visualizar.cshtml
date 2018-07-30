@@ -1,0 +1,21 @@
+﻿@model MontadoraEA.Models.Montador
+@{
+    Layout = null;
+    ViewBag.title = "Visualizar";
+}
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Visualizar</h4>
+            <button type="button" class="close" data-dismiss="modal" style="color:white"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        </div>
+        <div class="modal-body">
+            <p><b>@Html.DisplayNameFor(model => model.Nome):</b> @Html.DisplayFor(model => model.Nome)</p>
+            <p><b>@Html.DisplayNameFor(model => model.Cpf):</b> @Html.DisplayFor(model => model.Cpf)</p>
+            <p><b>@Html.DisplayNameFor(model => model.Salario):</b> @Html.DisplayFor(model => model.Salario)</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Fechar</button>
+        </div>
+    </div>
+</div>

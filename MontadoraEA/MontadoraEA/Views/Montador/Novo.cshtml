@@ -1,41 +1,53 @@
 ﻿@model MontadoraEA.Models.Montador
+
 @{
+    Layout = null;
     ViewBag.Title = "Novo";
 }
 
-<h2>Novo Montador</h2>
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/validations_pt-br")
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Novo", "Montador", FormMethod.Post, new { @id = "formNovo" }))
 {
     @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>Dados do Montador</legend>
-        <div>
-            @Html.LabelFor(Model => Model.Nome)
-        </div>
-        <div>
-            @Html.EditorFor(Model => Model.Nome)
-            @Html.ValidationMessageFor(Model => Model.Nome)
-        </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Cadastrar</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <fieldset>
+                    <div>
+                        @Html.LabelFor(Model => Model.Nome)
+                    </div>
+                    <div>
+                        @Html.EditorFor(Model => Model.Nome)
+                        @Html.ValidationMessageFor(Model => Model.Nome)
+                    </div>
 
-        <div>
-            @Html.LabelFor(Model => Model.Cpf)
-        </div>
-        <div>
-            @Html.EditorFor(Model => Model.Cpf)
-            @Html.ValidationMessageFor(Model => Model.Cpf)
-        </div>
+                    <div>
+                        @Html.LabelFor(Model => Model.Cpf)
+                    </div>
+                    <div>
+                        @Html.EditorFor(Model => Model.Cpf)
+                        @Html.ValidationMessageFor(Model => Model.Cpf)
+                    </div>
 
-        <div>
-            @Html.LabelFor(Model => Model.Salario)
+                    <div>
+                        @Html.LabelFor(Model => Model.Salario)
+                    </div>
+                    <div>
+                        @Html.EditorFor(Model => Model.Salario)
+                        @Html.ValidationMessageFor(Model => Model.Salario)
+                    </div>
+                </fieldset>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-outline-primary">Salvar</button>
+            </div>
         </div>
-        <div>
-            @Html.EditorFor(Model => Model.Salario)
-            @Html.ValidationMessageFor(Model => Model.Salario)
-        </div>
-
-        <div>
-            <button type="submit"> Enviar </button>
-        </div>
-    </fieldset>
+    </div>
 }

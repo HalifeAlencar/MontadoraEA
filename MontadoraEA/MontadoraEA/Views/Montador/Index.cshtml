@@ -1,7 +1,15 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "Montador";
 }
 
-<h2>Index</h2>
+<div class="modal fade" id="divModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+</div>
 
+<div class="form-row form-inline">
+    @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-outline-secondary" })
+    <button class="btn btn-outline-primary cadastrar"> Cadastrar </button>
+</div>
+
+<div id="divTabela">
+    @Html.Partial("_TabelaPartial")
+</div>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable < MontadoraEA.Models.Veiculo>
+
+<br />
+<table id="tabelaId" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Modelo)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th scope="col">
+                <header class="text-center">Ações</header>
+            </th>
+        </tr>
+    <thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria)
+            </td>
+            <td>
+                <div class="float-right">
+                    <button class="btn btn-outline-info visualizar" data-id="@item.VeiculoId"> Visualizar </button>
+                    <button class="btn btn-outline-warning editar" data-id="@item.VeiculoId"> Editar </button>
+                    <button class="btn btn-outline-danger excluir" data-id="@item.VeiculoId"> Excluir </button>                  
+                </div>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

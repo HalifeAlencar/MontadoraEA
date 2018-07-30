@@ -18,7 +18,7 @@ namespace MontadoraEA.Models
         public int PecaId { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayName("Data de Nascimento")]
+        [DisplayName("Data de Fabricação")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataFabricacao { get; set; }
 
@@ -33,9 +33,8 @@ namespace MontadoraEA.Models
         public string NumeroSerie { get; set; }        
 
         [Required]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:###,##0.00}")]
-        public double Valor { get; set; }
-                
+        public decimal Valor { get; set; }
+        
         public Fornecedor Fornecedor { get; set; }
     }
 }

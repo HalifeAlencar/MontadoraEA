@@ -107,3 +107,18 @@
         </div>
     </div>
 }
+
+    <script>
+        $('#Cidade_Estado').on('change', function () {
+            BuscarCidade();
+        });
+        function BuscarCidade() {
+            $('#selectCidade').load('@Url.Action("ListarCidadePorEstado", "Cidade")', { estado: $('#Cidade_Estado').val()});
+        }
+
+        $("#selectCidade").on('change', function () {
+            var conteudo = $("#selectCidade option:selected").text();
+            $("#nomeCidade").val(conteudo)
+        });
+
+    </script>

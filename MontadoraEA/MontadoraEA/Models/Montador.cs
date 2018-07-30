@@ -8,8 +8,7 @@ namespace MontadoraEA.Models
 {
     public class Montador: Pessoa
     {
-        [Display(Name = "Salário")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:###,##0.00}")]
-        public double Salario { get; set; }
+        [Display(Name = "Salário")]        
+        public decimal Salario { get; set; }
     }
 }

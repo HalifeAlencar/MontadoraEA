@@ -28,8 +28,7 @@ namespace MontadoraEA.Controllers
         public ActionResult Novo(Fornecedor fornecedor)
         {
             if (ModelState.IsValid)//valida no lado do servidor
-            {
-                fornecedor.Nome = fornecedor.Nome.ToUpper();
+            {                
                 fornecedorRepository.Adicionar(fornecedor);
                 TempData["SuccessMessage"] = "Cadastro realizado com sucesso.";
                 return RedirectToAction("Index");
@@ -57,7 +56,7 @@ namespace MontadoraEA.Controllers
             return View(fornecedor);
         }
 
-        public PartialViewResult _TabelaFornecedors(Fornecedor fornecedor)
+        public PartialViewResult _TabelaPartial(Fornecedor fornecedor)
         {
             return PartialView(fornecedorRepository.ListaFornecedor().OrderBy(p => p.Nome));
         }        
@@ -83,8 +82,7 @@ namespace MontadoraEA.Controllers
         public ActionResult Editar(Fornecedor fornecedor)
         {
             if (ModelState.IsValid)
-            {
-                fornecedor.Nome = fornecedor.Nome.ToUpper();
+            {                
                 fornecedorRepository.Editar(fornecedor);
                 TempData["SuccessMessage"] = "Registro editado com sucesso.";
                 return RedirectToAction("Index");
