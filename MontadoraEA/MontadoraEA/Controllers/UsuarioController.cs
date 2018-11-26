@@ -1,4 +1,5 @@
 ﻿using MontadoraEA.Models;
+using MontadoraEA.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,34 @@ namespace MontadoraEA.Controllers
 {
     public class UsuarioController : Controller
     {
+        private readonly UsuarioRepository usuarioRepository = new UsuarioRepository();
+
+        
+        public ActionResult CadastroUsuario()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CadastroUsuario(Usuario usuario)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    TempData["SuccessMessage"] = "Cadastro realizado com sucesso. Seja bem vindo!";
+                    usuarioRepository.Adicionar(usuario);
+                }
+                return RedirectToAction("Index", "Home");
+            }
+            catch
+            {
+                
+                return View("CadastroUsuario");
+            }
+           
+        }
+
         // GET: Usuario
         public ActionResult Index()
         {

@@ -65,21 +65,21 @@
                     </div>
 
                     <div>
-                        @Html.LabelFor(Model => Model.Cidade.Estado)
+                        @Html.Label("Estado")
                     </div>
                     <div>
                         @Html.EnumDropDownListFor(Model => Model.Cidade.Estado, new { @class = "form-control" })
 
-                        @Html.ValidationMessageFor(Model => Model.Cidade.Estado, "", new { @class = "text-danger" })
+                        @*@Html.ValidationMessageFor(Model => Model.Cidade.Estado, "", new { @class = "text-danger" })*@
                     </div>
 
                     <div>
-                        @Html.LabelFor(Model => Model.Cidade.Nome)
+                        @Html.Label("Cidade")
                     </div>
                     <div>
-                        <select name="Cidade.CidadeId" id="selectCidade" class="form-control"></select>
+                        <select name="CidadeId" id="selectCidade" class="form-control"></select>
                         <input type="hidden" name="Cidade.Nome" id="nomeCidade" />
-                        @Html.ValidationMessageFor(Model => Model.Cidade, "", new { @class = "text-danger" })
+                        @*@Html.ValidationMessageFor(Model => Model.Cidade, "", new { @class = "text-danger" })*@
                     </div>
 
                     <div>
@@ -107,7 +107,8 @@
     </div>
 }
 
-<script>
+
+    <script>
         $('#Cidade_Estado').on('change', function () {
             BuscarCidade();
         });
@@ -120,7 +121,9 @@
             $("#nomeCidade").val(conteudo)
         });
 
-</script>
+    </script>
+
+
 
 @*@{
         ViewBag.Title = "Novo";

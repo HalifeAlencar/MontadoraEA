@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,14 +10,14 @@ namespace MontadoraEA.Models
 {
     public class Cliente: Pessoa
     {
-        //public Cliente()
-        //{
-        //    Cidade = new Cidade();
+        public Cliente()
+        {
+            Cidade = new Cidade();
 
-        //}
-        [DataType(DataType.Date)]
+        }
+
         [DisplayName("Data de Nascimento")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataNascimento { get; set; }
 
         [StringLength(50, ErrorMessage = "O tamanho máximo são 50 caracteres.")]
@@ -36,9 +37,11 @@ namespace MontadoraEA.Models
         [Required]
         public string Rg { get; set; }
 
-        
-        public Cidade Cidade { get; set; }
-        
+
+        public int CidadeId { get; set; }
+        [ForeignKey("CidadeId")]
+        public virtual Cidade Cidade { get; set; }
+
         [Required]
         [DisplayName("Sexo")]
         [Range(1, int.MaxValue, ErrorMessage = "O campo Sexo é obrigatório.")]

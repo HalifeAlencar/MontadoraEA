@@ -38,7 +38,5 @@ namespace MontadoraEA.Repository
             db.Cliente.Remove(cliente);
             db.SaveChanges();
         }
-
-
     }
 }

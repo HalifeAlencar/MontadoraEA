@@ -22,6 +22,6 @@ namespace MontadoraEA.Models
         [Required]
         [Range(1, int.MaxValue, ErrorMessage ="O campo UF é obrigatório.")]
         [DisplayName("UF")]
-        public Estado Estado { get; set; }
+        public Estado Estado { get; set; }        
     }
 }

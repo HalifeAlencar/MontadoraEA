@@ -12,6 +12,7 @@ namespace MontadoraEA.Controllers
     public class ClienteController : Controller
     {
         private readonly ClienteRepository clienteRepository = new ClienteRepository();
+        //private readonly CidadeRepository cidadeRepository = new CidadeRepository();
         // GET: Cliente
         public ActionResult Index()
         {
@@ -27,9 +28,14 @@ namespace MontadoraEA.Controllers
         [HttpPost]
         public ActionResult Novo(Cliente cliente)
         {
+            
 
             if (ModelState.IsValid)
             {
+                
+                //cidade = cidadeRepository.BuscaCidade(cidade.CidadeId);
+                //cliente.Cidade.CidadeId = cidade.CidadeId;             
+
                 clienteRepository.Adicionar(cliente);
                 TempData["SuccessMessage"] = "Cadastro realizado com sucesso.";
                 return RedirectToAction("Index");

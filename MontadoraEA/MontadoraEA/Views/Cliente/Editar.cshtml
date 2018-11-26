@@ -45,7 +45,7 @@
                         @Html.LabelFor(Model => Model.DataNascimento)
                     </div>
                     <div>
-                        @Html.EditorFor(Model => Model.DataNascimento, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(Model => Model.DataNascimento, new { htmlAttributes = new { @class = "form-control", id = "DataDeNascimento" } })
                         @Html.ValidationMessageFor(Model => Model.DataNascimento, "", new { @class = "text-danger" })
                     </div>
 
@@ -108,9 +108,9 @@
     </div>
 }
 
-    <script>
+<script>
         $('#Cidade_Estado').on('change', function () {
-            BuscarCidade();
+        BuscarCidade();
         });
         function BuscarCidade() {
             $('#selectCidade').load('@Url.Action("ListarCidadePorEstado", "Cidade")', { estado: $('#Cidade_Estado').val()});
@@ -120,5 +120,4 @@
             var conteudo = $("#selectCidade option:selected").text();
             $("#nomeCidade").val(conteudo)
         });
-
-    </script>
+</script>

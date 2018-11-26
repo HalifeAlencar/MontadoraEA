@@ -1,0 +1,40 @@
+﻿@model MontadoraEA.Models.Usuario
+@{
+    ViewBag.Title = "Login";
+    //Layout = null;
+}
+@using (Html.BeginForm("CadastroUsuario", "Usuario", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    if (@ViewBag.Message != null)
+    {
+        <div style="border:1px solid red">
+            @ViewBag.Message
+        </div>
+    }
+    <form>
+        <div class="form-group">
+            @Html.TextBoxFor(a => a.Nome, new { @class = "form-control", @placeholder = "Nome" })
+            @Html.ValidationMessageFor(a => a.Nome, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(a => a.Login, new { @class = "form-control", @placeholder = "Login" })
+            @Html.ValidationMessageFor(a => a.Login, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.PasswordFor(a => a.Senha, new { @class = "form-control", @placeholder = "Senha" })
+            @Html.ValidationMessageFor(a => a.Senha, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.PasswordFor(a => a.ConfirmaSenha, new { @class = "form-control", @placeholder = "Confirmar Senha" })
+            @Html.ValidationMessageFor(a => a.ConfirmaSenha, "", new { @class = "text-danger" })
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

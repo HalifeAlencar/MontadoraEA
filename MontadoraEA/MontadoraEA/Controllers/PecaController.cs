@@ -12,15 +12,18 @@ namespace MontadoraEA.Controllers
     public class PecaController : Controller
     {
         private readonly PecaRepository pecaRepository = new PecaRepository();
+        private readonly FornecedorRepository fornecedorRepository = new FornecedorRepository();
 
         public ActionResult Index()
         {
+            
             TempData["ScriptIndexEssentials"] = "";
             return View(pecaRepository.ListaPeca().OrderBy(p => p.Descricao));
         }
 
         public ActionResult Novo()
         {
+            ViewBag.fornecedores = new SelectList(fornecedorRepository.ListaFornecedor(), "Id", "Nome");
             return View();
         }
 

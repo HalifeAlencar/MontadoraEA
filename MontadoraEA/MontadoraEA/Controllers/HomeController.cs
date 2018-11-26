@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MontadoraEA.Models;
+using MontadoraEA.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,27 @@ namespace MontadoraEA.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly UsuarioRepository usuarioRepository = new UsuarioRepository();
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string login, string senha)
+        {
+
+            if (ModelState.IsValid) //verifica se é válido
+            {
+                usuarioRepository.BuscaLogin(login,senha);
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View();
+        }
+
         public ActionResult Index()
         {
             return View();

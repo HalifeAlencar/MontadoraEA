@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -34,7 +35,11 @@ namespace MontadoraEA.Models
 
         [Required]
         public decimal Valor { get; set; }
-        
-        public Fornecedor Fornecedor { get; set; }
+
+
+        public int FornecedorId { get; set; }
+
+        [ForeignKey("FornecedorId")]
+        public virtual Fornecedor Fornecedor { get; set; }
     }
 }

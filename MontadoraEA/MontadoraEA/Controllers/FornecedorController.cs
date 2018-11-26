@@ -1,6 +1,7 @@
 ﻿using MontadoraEA.Models;
 using MontadoraEA.Repository;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -20,7 +21,7 @@ namespace MontadoraEA.Controllers
         }
 
         public ActionResult Novo()
-        {
+        {            
             return View();
         }
 
@@ -117,7 +118,12 @@ namespace MontadoraEA.Controllers
             fornecedorRepository.Excluir(fornecedor);
             TempData["SuccessMessage"] = "Registro excluido com sucesso.";
             return RedirectToAction("index");
-        }
+        }        
 
+        //public PartialViewResult _PartialSelect()
+        //{
+        //    ViewBag.fornecedores = new SelectList(fornecedorRepository.ListaFornecedor(), "Id", "Nome");
+        //    return ();
+        //}
     }
 }

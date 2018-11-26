@@ -38,9 +38,15 @@
                         @Html.LabelFor(Model => Model.Fornecedor)
                     </div>
                     <div>
-                        @Html.EditorFor(Model => Model.Fornecedor.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.DropDownList("FornecedorId", ViewBag.fornecedores as SelectList, null, new { @class = "form-control" })
                         @Html.ValidationMessageFor(Model => Model.Fornecedor.Nome, "", new { @class = "text-danger" })
                     </div>
+
+                    @*<select name="Fornecedor.Id" id="selectFornecedor" class="form-control"></select>
+                    <input type="hidden" name="Fornecedir.Nome" id="nomeFornecedor" />
+                    @Html.ValidationMessageFor(Model => Model.Fornecedor, "", new { @class = "text-danger" })*@
+
+
 
                     <div>
                         @Html.LabelFor(Model => Model.DataFabricacao)
@@ -66,3 +72,13 @@
         </div>
     </div>
 }
+
+@section scripts{
+    <script>
+
+
+        $('#selectFornecedor').load(@Html.Partial("_PartialSelecionarFornecedor", "Fornecedor")
+
+    </script>
+}
+
